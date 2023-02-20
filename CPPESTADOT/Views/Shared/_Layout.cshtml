@@ -15,13 +15,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand text-light" href="#">Cashpak</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+    <!-- Barra de Navegacion -->
+    <nav class="navbar navbar navegacion">
+        <div class="container-fluid  navegacion">
+            <a class="navbar-brand text-light " href="#">Cashpak</a>
         </div>
     </nav>
 
@@ -31,21 +28,21 @@
         <div class="container text-center salto">
             <div class="row align-items-start">
                 <div class="col">
-                    izquierda
+                    <!--Izquierda-->
                 </div>
                 <div class="col">
                     <!-- formulario Contenedor -->
                     <div class="contenedor justify-content-center row">
-                       
+
                         <div class="formulario">
                             <!-- Formulario-->
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label text-light">Documento</label>
+                                    <label for="inputEmail4" class="form-label text-dark">Documento</label>
                                     <input type="text" minlength="16" maxlength="16" size="16" class="form-control" id="">
-                                </div>
+                                </div> 
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label text-light">Cuenta</label>
+                                    <label for="inputPassword4" class="form-label text-dark">Cuenta</label>
                                     <input type="text" minlength="9" maxlength="9" size="16" class="form-control" id="">
                                 </div>
                                 <div class="col-12">
@@ -59,23 +56,23 @@
 
                 </div>
                 <div class="col">
-                    Derecha
+                    <!--Derecha-->
                 </div>
             </div>
         </div>
     </div>
 
 
-    
+
 
     <script type="text/javascript">
 
-        function Mostrar(){
+        function Mostrar() {
 
             Swal.fire({
                 title: '¿Quieres consultar esta Tarjeta?',
                 //showDenyButton: true,
-               // showCancelButton: true,
+                // showCancelButton: true,
                 confirmButtonText: 'Consultar',
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
@@ -85,15 +82,15 @@
                     Swal.fire('Tarjeta Depurada', '', 'error')
                 }
             })
-            
-           
+
+
 
         }
 
 
     </script>
 
-    
+
 
 
     @RenderBody()
