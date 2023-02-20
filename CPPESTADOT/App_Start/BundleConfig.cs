@@ -21,7 +21,7 @@ namespace CPPESTADOT
                 "~/Scripts/knockout-{version}.js",
                 "~/Scripts/knockout.validation.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+            bundles.Add(new Bundle("~/bundles/app").Include(
                 "~/Scripts/sammy-{version}.js",
                 "~/Scripts/app/common.js",
                 "~/Scripts/app/app.datamodel.js",

@@ -1,7 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -39,4 +36,36 @@ textarea {
 .navbar-inverse .navbar-toggle:focus {
     background-color: #777;
     border-color: #fff
+}
+
+
+.salto{
+    padding-top: 30px
+
+}
+
+.contenedor {
+
+    width: 800px;
+    max-width: 800px;
+    height: 350px;
+    max-height: 350px;
+    border-style: solid;
+    border-radius: 5px;
+    align-content: center;
+}
+
+.conte {
+    width:400px;
+    height: 100px;
+    padding-bottom : 60px;
+}
+
+
+.formulario {
+    width: 400px;
+    height: 300px;
+    background: blue;
+    border-style: solid;
+    border-radius: 5px;
 }

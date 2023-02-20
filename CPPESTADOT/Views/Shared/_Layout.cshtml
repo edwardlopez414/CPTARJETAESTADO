@@ -1,51 +1,107 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <title>@ViewBag.Title - mi aplicación ASP.NET</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" rel="stylesheet">
+    <!--Swee alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand text-light" href="#">Cashpak</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </nav>
 
 
+    <!-- formulario -->
+    <div class="container-fluid">
+        <div class="container text-center salto">
+            <div class="row align-items-start">
+                <div class="col">
+                    izquierda
+                </div>
+                <div class="col">
+                    <!-- formulario Contenedor -->
+                    <div class="contenedor justify-content-center row">
+                       
+                        <div class="formulario">
+                            <!-- Formulario-->
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="inputEmail4" class="form-label text-light">Documento</label>
+                                    <input type="text" minlength="16" maxlength="16" size="16" class="form-control" id="">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputPassword4" class="form-label text-light">Cuenta</label>
+                                    <input type="text" minlength="9" maxlength="9" size="16" class="form-control" id="">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
+                                </div>
+                            </div>
+                            <!--Fin Formulario-->
+                        </div>
+                    </div>
+                    <!-- formulario Contenor Fin -->
 
+                </div>
+                <div class="col">
+                    Derecha
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script type="text/javascript">
+
+        function Mostrar(){
+
+            Swal.fire({
+                title: '¿Quieres consultar esta Tarjeta?',
+                //showDenyButton: true,
+               // showCancelButton: true,
+                confirmButtonText: 'Consultar',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire('Tarjeta Activa', '', 'success')
+                } else if (result.isDenied) {
+                    Swal.fire('Tarjeta Depurada', '', 'error')
+                }
+            })
+            
+           
+
+        }
+
+
+    </script>
+
+    
 
 
     @RenderBody()
-    @RenderSection("SPAViews", required: false)
+    @*@RenderSection("SPAViews", required: false)*@
 
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("Scripts", required: false)
+    @*@RenderSection("Scripts", required: false)*@
 </body>
 </html>
