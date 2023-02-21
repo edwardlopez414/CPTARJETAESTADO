@@ -1,9 +1,9 @@
 ﻿body {
     background-image: url(https://cashpak.com.ni/wp-content/uploads/2022/04/tutoriales-cashpak-billetera-cachpak.jpg);
-    background-position: center center;
-    font-family: 'Lucida Fax';
+    font-family: 'Electrolize', sans-serif;
     position: relative;
-    height: 70vh;
+    background-size: cover;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -49,7 +49,8 @@ textarea {
     background: #0575E6; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #021B79, #0575E6); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    width : 100%;
+    width: 100%;
+
 }
 .salto{
     padding-top: 30px
@@ -74,11 +75,32 @@ textarea {
 
 
 .formulario {
-    padding-top :5px;
-    margin-top : 5px;
+    padding-top: 5px;
+    margin-top: 5px;
     width: 400px;
     height: 160px;
     background: white;
-    border-style: solid ;
+    border-style: solid;
     border-radius: 20px;
+   
+}
+
+
+.texto {
+    animation: mover 2s infinite;
+}
+
+@keyframes mover{
+    10%{
+        transform: scale(1) rotate(5deg);
+    }
+    20% {
+        transform: scale(1) rotate(-5deg);
+    }
+    30% {
+        transform: scale(1) rotate(5deg);
+    }
+    40% {
+        transform: none;
+    }
 }

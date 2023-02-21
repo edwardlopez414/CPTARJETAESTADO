@@ -9,22 +9,27 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" rel="stylesheet">
     <!--Swee alert-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&family=Electrolize&family=Shantell+Sans:wght@300&family=Tourney:ital,wght@0,100;0,200;1,100;1,200&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @Styles.Render("~/Content/css")
     @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
 
+    
     <!-- Barra de Navegacion -->
     <nav class="navbar navbar navegacion">
         <div class="container-fluid  navegacion">
-            <a class="navbar-brand text-light " href="#">Cashpak</a>
+            <img class="brz-img texto" srcset="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x1x0x176x47x1638558904.png 1x, https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-356x94x2x0x352x94x1638558904.png 2x" src="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x0x0x178x47x1638558904.png" alt="" draggable="false" loading="lazy">
         </div>
     </nav>
 
 
     <!-- formulario -->
-    <div class="container-fluid">
+    <div class="container-xl">
         <div class="container text-center salto">
             <div class="row align-items-start">
                 <div class="col">
@@ -38,11 +43,11 @@
                             <!-- Formulario-->
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label text-dark">Documento</label>
+                                    <label class="form-label text-dark">Documento</label>
                                     <input type="text" minlength="16" maxlength="16" size="16" class="form-control" id="">
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label text-dark">Cuenta</label>
+                                    <label class="form-label text-dark">Cuenta</label>
                                     <input type="text" minlength="9" maxlength="9" size="16" class="form-control" id="">
                                 </div>
                                 <div class="col-12">
@@ -71,7 +76,7 @@
 
             Swal.fire({
                 title: '¿Quieres consultar esta Tarjeta?',
-                //showDenyButton: true,
+                showDenyButton: true,
                 // showCancelButton: true,
                 confirmButtonText: 'Consultar',
             }).then((result) => {
