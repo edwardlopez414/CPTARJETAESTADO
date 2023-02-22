@@ -9,6 +9,8 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using CPPESTADOT.Models.API;
+using System.Security.Cryptography.X509Certificates;
+using Newtonsoft.Json.Linq;
 
 namespace CPPESTADOT.Controllers
 {
@@ -19,48 +21,43 @@ namespace CPPESTADOT.Controllers
         {
             return View();
         }
-
-        public async Task<JsonResult> API(string Variable)
+        [HttpPost]
+        public async Task<JsonResult> API()
         {
-
-            bool status = false;
-            string respuesta = string.Empty;
-
+          
             using (var client = new HttpClient())
             {
-                //var usarname = "";
-                //var passwd = "";
+                
+                string url = "https://jsonplaceholder.typicode.com/posts";
 
-                client.BaseAddress = new Uri("https://www.banguat.gob.gt");
+                client.DefaultRequestHeaders.Clear();   
 
+                string paramtros = "{'title': 'foo','body': 'bar de prueba', 'userId': 1,}";
 
-                var intent = new APIDATA()
-                {
+                dynamic jsonstring = JObject.Parse(paramtros);
 
-                    Envelope = new Envelope()
-                    {
-                        Body = new Body()
-                        {
-                            Variables = new Variables()
-                            {
-                                variable = ""
-                            }
-                        }
-                    }
-                };
-                var json = JsonConvert.SerializeObject(intent);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var httpConten = new StringContent(jsonstring.ToString(), Encoding.UTF8, "application/json");
+               
+                var response = client.PostAsJsonAsync(url, httpConten).Result;
 
-                HttpResponseMessage response = await client.PostAsync("/variables/ws/TipoCambio.asmx", data);
+                var response2 = response.Content.ReadAsStringAsync().Result;
 
-                status = response.IsSuccessStatusCode;
+                dynamic r2= JObject.Parse(response2);
+                //var json = JsonConvert.SerializeObject(intent);
+                
 
-                if (status) { 
-                respuesta = response.Content.ReadAsStringAsync().Result;
-                }
+                //HttpResponseMessage response = await client.PostAsync("/variables/ws/TipoCambio.asmx", data);
 
-                return Json(new { status = status, respuesta = respuesta }, JsonRequestBehavior.AllowGet);
+                //status = response.IsSuccessStatusCode;
+
+                //if (status) { 
+                ////respuesta = response.Content.ReadAsStringAsync().Result;
+                //}
+
+                return Json(new { respuesta = r2 }, JsonRequestBehavior.AllowGet);
             }
+
+            
         }
     }
 }
