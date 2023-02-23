@@ -22,42 +22,13 @@ namespace CPPESTADOT.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<JsonResult> API()
+        public  JsonResult Name(int i)
         {
-          
-            using (var client = new HttpClient())
-            {
-                
-                string url = "https://jsonplaceholder.typicode.com/posts";
+           
+            var name = i+5;
+            return Json(i);
 
-                client.DefaultRequestHeaders.Clear();   
-
-                string paramtros = "{'title': 'foo','body': 'bar de prueba', 'userId': 1,}";
-
-                dynamic jsonstring = JObject.Parse(paramtros);
-
-                var httpConten = new StringContent(jsonstring.ToString(), Encoding.UTF8, "application/json");
-               
-                var response = client.PostAsJsonAsync(url, httpConten).Result;
-
-                var response2 = response.Content.ReadAsStringAsync().Result;
-
-                dynamic r2= JObject.Parse(response2);
-                //var json = JsonConvert.SerializeObject(intent);
-                
-
-                //HttpResponseMessage response = await client.PostAsync("/variables/ws/TipoCambio.asmx", data);
-
-                //status = response.IsSuccessStatusCode;
-
-                //if (status) { 
-                ////respuesta = response.Content.ReadAsStringAsync().Result;
-                //}
-
-                return Json(new { respuesta = r2 }, JsonRequestBehavior.AllowGet);
-            }
-
-            
+           
         }
     }
 }

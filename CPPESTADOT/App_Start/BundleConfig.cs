@@ -37,6 +37,9 @@ namespace CPPESTADOT
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.min.js"));
 
+            bundles.Add(new Bundle("~/bundles/CREDENCIALES").Include(
+                "~/Scripts/APICONECT.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.min.css",
                  "~/Content/Site.css"));
