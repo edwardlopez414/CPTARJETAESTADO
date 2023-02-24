@@ -27,12 +27,24 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult Name(int i)
-        {
+        public string postransNumber(ulong i) {
 
-            var name = i + 5;
-            return Json(i);
+          
+            string respuesta;
+            Conversion.NumberConversionSoapTypeClient oComNumb = new Conversion.NumberConversionSoapTypeClient("NumberConversionSoap");
+
+            respuesta = oComNumb.NumberToWords(i);
+
+            return respuesta;
+        }
+        [HttpPost]
+        public JsonResult Name(ulong i)
+        {
+            string respuesta;
+            respuesta = postransNumber(i);
+               
+         
+            return Json(respuesta);
 
 
         }

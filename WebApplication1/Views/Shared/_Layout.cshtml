@@ -42,7 +42,7 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label text-dark">Documento</label>
-                                    <input type="text" minlength="16" maxlength="16" size="16" class="form-control" id="">
+                                    <input type="text"  size="16" class="form-control" id="doc">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label text-dark">Cuenta</label>
@@ -78,10 +78,10 @@
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-
+            let inputValue = document.getElementById("doc").value; 
             var url = "@Url.Action("Name", "Home")";
             var i = 5;
-            var data = { i : i };
+            var data = { i : inputValue };
             $.post(url , data).done(function (data){
                 alert(data);
             });
