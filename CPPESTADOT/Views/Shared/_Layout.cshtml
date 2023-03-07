@@ -39,20 +39,14 @@
                     <!-- formulario Contenedor -->
                     <div class="contenedor justify-content-center row">
 
-                        <div class="formulario">
+                        <div class="formulario text-center">
                             <!-- Formulario-->
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label text-dark">Documento</label>
-                                    <input type="text" minlength="16" maxlength="16" size="16" class="form-control" id="">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label text-dark">Cuenta</label>
-                                    <input type="text" minlength="9" maxlength="9" size="16" class="form-control" id="">
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
-                                </div>
+                            <div class="mb-3 row">
+                                <label for="formGroupExampleInput" class="form-label text-center">Numero de Cuenta</label>
+                                <input type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="123456789" maxlength="9">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" onclick="Consultar()" class="btn btn-primary">Consultar</button>
                             </div>
                             <!--Fin Formulario-->
                         </div>
@@ -72,7 +66,7 @@
 
     <script type="text/javascript">
 
-        function Mostrar() {
+        function Consultar() {
 
             Swal.fire({
                 title: '¿Quieres consultar esta Tarjeta?',

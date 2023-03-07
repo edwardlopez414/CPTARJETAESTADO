@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="2f2d6f06-9223-45ec-bf3c-1a5400ca794d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://prepaidcard.airpak-services.com/WSGCSHPAK/WebRequest.svc?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WebRequest.xsd" MetadataType="Schema" ID="efe34fbf-7945-4baa-a029-7cac964557f1" SourceId="1" SourceUrl="http://prepaidcard.airpak-services.com/WSGCSHPAK/WebRequest.svc?xsd=xsd1" />
+    <MetadataFile FileName="WebRequest1.xsd" MetadataType="Schema" ID="c3b54829-f5bd-4a2b-8d30-7b0e98fe1edf" SourceId="1" SourceUrl="http://prepaidcard.airpak-services.com/WSGCSHPAK/WebRequest.svc?xsd=xsd0" />
+    <MetadataFile FileName="WebRequest.wsdl" MetadataType="Wsdl" ID="b6d44187-9e83-4380-9f60-56846c912664" SourceId="1" SourceUrl="http://prepaidcard.airpak-services.com/WSGCSHPAK/WebRequest.svc?WSDL" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -6,7 +6,6 @@ using Microsoft.Owin.Security;
 using Owin;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -22,8 +21,6 @@ namespace CPPESTADOT.Controllers
 
         public MeController()
         {
-
-      
         }
 
         public MeController(ApplicationUserManager userManager)
@@ -40,7 +37,6 @@ namespace CPPESTADOT.Controllers
             private set
             {
                 _userManager = value;
-                
             }
         }
 
@@ -49,13 +45,6 @@ namespace CPPESTADOT.Controllers
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
             return new GetViewModel() { Hometown = user.Hometown };
-
-       
         }
-
-
     }
-
-
- 
 }
