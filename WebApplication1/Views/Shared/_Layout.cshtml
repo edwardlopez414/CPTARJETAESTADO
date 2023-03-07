@@ -17,17 +17,16 @@
 
 </head>
 <body>
-
     <!-- Barra de Navegacion -->
     <nav class="navbar navbar navegacion">
         <div class="container-fluid  navegacion">
-            <a class="navbar-brand text-light " href="#">Cashpak</a>
+            <img class="brz-img texto" srcset="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x1x0x176x47x1638558904.png 1x, https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-356x94x2x0x352x94x1638558904.png 2x" src="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x0x0x178x47x1638558904.png" alt="" draggable="false" loading="lazy">
         </div>
     </nav>
 
 
     <!-- formulario -->
-    <div class="container-fluid">
+    <div class="container-xl">
         <div class="container text-center salto">
             <div class="row align-items-start">
                 <div class="col">
@@ -37,20 +36,14 @@
                     <!-- formulario Contenedor -->
                     <div class="contenedor justify-content-center row">
 
-                        <div class="formulario">
+                        <div class="formulario text-center">
                             <!-- Formulario-->
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label text-dark">Documento</label>
-                                    <input type="text"  size="16" class="form-control" id="doc">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label text-dark">Cuenta</label>
-                                    <input type="text" minlength="9" maxlength="9" size="16" class="form-control" id="">
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
-                                </div>
+                            <div class="mb-3 row">
+                                <label for="formGroupExampleInput" class="form-label text-center">Numero de Cuenta</label>
+                                <input type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="123456789" maxlength="9">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
                             </div>
                             <!--Fin Formulario-->
                         </div>
@@ -67,6 +60,9 @@
 
 
 
+
+
+
     <script type="text/javascript">
 
    function Mostrar() {
@@ -78,16 +74,39 @@
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            let inputValue = document.getElementById("doc").value; 
+            let inputValue = document.getElementById("formGroupExampleInput").value;
             console.log(inputValue);
+
             var url = "@Url.Action("Credenciales", "Home")";
-           
+
+            const parser = new DOMParser();
+
             var data = { header : inputValue };
             $.post(url , data).done(function (data){
-                alert(data);
+                var xmlDoc = $.parseXML(data);
+                var $xml = $(xmlDoc);
+                var $title = $xml.find("faultcode");
+                var $state = $xml.find("local_status_account");
+                var $stado = $state.text();
+                var error = $title.text();
+                console.log($title.text());
+
+                if (error == "CASHPAK-ERROR") {
+                    Swal.fire('ERROR', $title.text(), 'error')
+                } else if ($stado == "C") {
+                    Swal.fire('Tarjeta Depurada', "TARJETA ENVIADA A CREDENCIALES", 'error')
+                } else {
+
+                    switch ($stado) {
+
+                        case 'A': Swal.fire('Tarjeta Activa', 'TARJETA ASIGNADA', 'success'); break;
+
+                        case 'R': Swal.fire('Tarjeta Activa', 'TARJETA REEMPLAZADA', 'success'); break;
+                    }
+                }
             });
         } else if (result.isDenied) {
-            Swal.fire('Tarjeta Depurada', '', 'error')
+            Swal.fire('', "-----X-----", '')
         }
     })
 
