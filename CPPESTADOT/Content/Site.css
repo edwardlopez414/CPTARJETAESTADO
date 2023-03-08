@@ -1,17 +1,11 @@
 ﻿body {
-    background-image: url(https://cashpak.com.ni/wp-content/uploads/2022/04/tutoriales-cashpak-billetera-cachpak.jpg);
     font-family: 'Electrolize', sans-serif;
-    position: relative;
-    background-size:cover;
-    background-repeat:repeat ;
 
- 
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+   
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -52,40 +46,40 @@ textarea {
     background: -webkit-linear-gradient(to right, #021B79, #0575E6); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
-    min-width: 900px
-
-}
-.salto{
-    padding-top: 30px
-
+    min-width: 1039px;
 }
 
-.contenedor {
-    width: 800px;
-    max-width: 800px;
-    height: 350px;
-    align-content: center;
-    opacity: 1;
-    padding-bottom : 100px;
-   
-}
 
-.conte {
-    width:400px;
-    height: 100px;
-    padding-bottom : 60px;
+.formulario1 {
+    width: 100%;
+    height: 160px;
+    padding-top: 6.5em;
+    min-width: 1039px;
+    position: relative;
+    left: 0%;
+    top: 25%;
+
 }
 
 
 .formulario {
-    padding-top: 5px;
-    margin-top: 5px;
     width: 400px;
     height: 160px;
     background: white;
     border-style: solid;
     border-radius: 20px;
-    align-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.imagen {
+    /**/ background-image: url(https://cashpak.com.ni/wp-content/uploads/2022/04/tutoriales-cashpak-billetera-cachpak.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    width: 100%;
+    height: 37.1em;
+    min-width: 1039px;
+    background-position: center center;
 }
 
 
