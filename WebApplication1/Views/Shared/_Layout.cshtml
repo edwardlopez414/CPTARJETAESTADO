@@ -26,41 +26,8 @@
 
 
     <!-- formulario -->
-    <div class="container-xl">
-        <div class="container text-center salto">
-            <div class="row align-items-start">
-                <div class="col">
-                    <!--Izquierda-->
-                </div>
-                <div class="col">
-                    <!-- formulario Contenedor -->
-                    <div class="contenedor justify-content-center row">
 
-                        <div class="formulario text-center">
-                            <!-- Formulario-->
-                            <div class="mb-3 row">
-                                <label for="formGroupExampleInput" class="form-label text-center">Numero de Cuenta</label>
-                                <input type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="123456789" maxlength="9">
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
-                            </div>
-                            <!--Fin Formulario-->
-                        </div>
-                    </div>
-                    <!-- formulario Contenor Fin -->
-
-                </div>
-                <div class="col">
-                    <!--Derecha-->
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
+    @RenderBody()
 
 
     <script type="text/javascript">
@@ -87,21 +54,30 @@
                 var $xml = $(xmlDoc);
                 var $title = $xml.find("faultcode");
                 var $state = $xml.find("local_status_account");
+                var $des = $xml.find("credencial_status_description");
+                var $invalid = $xml.find("local_customer_id")
                 var $stado = $state.text();
                 var error = $title.text();
-                console.log($title.text());
+                var $inval = $invalid.text();
+               /* var $desc = $des.text();*/
+                console.log(data);
 
                 if (error == "CASHPAK-ERROR") {
                     Swal.fire('ERROR', $title.text(), 'error')
                 } else if ($stado == "C") {
                     Swal.fire('Tarjeta Depurada', "TARJETA ENVIADA A CREDENCIALES", 'error')
                 } else {
-
+                    console.log($invalid.text())
+                    if ($inval == "") {
+                        Swal.fire('Tarjeta Inexistente', "VALIDAR CUENTA", 'question')
+                    }
                     switch ($stado) {
 
                         case 'A': Swal.fire('Tarjeta Activa', 'TARJETA ASIGNADA', 'success'); break;
 
                         case 'R': Swal.fire('Tarjeta Activa', 'TARJETA REEMPLAZADA', 'success'); break;
+
+                        case 'P': Swal.fire('Tarjeta Bloqueada',$des.text(), 'error'); break;
                     }
                 }
             });
@@ -121,7 +97,7 @@
 
 
 
-    @RenderBody()
+
     @*@RenderSection("SPAViews", required: false)*@
 
 

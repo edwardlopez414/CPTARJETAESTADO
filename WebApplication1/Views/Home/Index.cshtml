@@ -1,30 +1,51 @@
-﻿<!--
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <tem:GetResponse>
-         <!--Optional:-->
-<!--  <tem:pXmlData>
-    <![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-        <soapenv:Header />
-        <soapenv:Body>
-            <header>
-                <agency_id>3639</agency_id>
-                <agency_account>CAS00001</agency_account>
-                <user>DgadeaH2H</user>
-                <password>Cashpak20192</password>
-                <terminal_id>POSNI0014935</terminal_id>
-                <operation_id>card-status-query-request</operation_id>
-            </header>
-            <card-status-query-request>
-                <platform>IVR</platform>
-                <id_product>K640</id_product>
-                <account_number>537480021</account_number>
-            </card-status-query-request>
-        </soapenv:Body>
-    </soapenv:Envelope>]]>
-</tem:pXmlData>
-      </tem:GetResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
--->
+﻿<div class="imagen">
+    <!-- formulario -->
+    <div class="container-xxl  ">
+        <div class="formulario1   ">
+            <div class="formulario justify-content-center row ">
+                <div class="mb-3 row">
+                    <label for="formGroupExampleInput" class="form-label text-center">Numero de Cuenta</label>
+                    <input type="text" onkeypress="return check(event)" onpaste="return false" class="form-control text-center" id="formGroupExampleInput" placeholder="123456789" maxlength="9">
+                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" onclick="Mostrar()" class="btn btn-primary">Consultar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- formulario Contenor Fin -->
+</div>
+
+<script type="text/javascript">
+
+
+    function check(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+            return true;
+        }
+
+        // Patrón de entrada, en este caso solo acepta numeros y letras
+        patron = /[0-9]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+@*Enviar un mensaje a Michael Alexander Sevilla Martinez*@
+
+
+
