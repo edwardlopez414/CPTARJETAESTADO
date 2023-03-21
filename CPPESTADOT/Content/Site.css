@@ -53,7 +53,7 @@ textarea {
 .formulario1 {
     width: 100%;
     height: 160px;
-    padding-top: 6.5em;
+    padding-top: 1em;
     min-width: 1039px;
     position: relative;
     left: 0%;
@@ -62,10 +62,11 @@ textarea {
 }
 
 
-.formulario {
+
+.tarjeta {
     width: 400px;
-    height: 160px;
-    background: white;
+    height: 220px;
+    background: #FFFFFF;
     border-style: solid;
     border-radius: 20px;
     margin: 0 auto;
@@ -83,7 +84,8 @@ textarea {
 }
 
 
-.texto {
+
+/*.texto {
     animation: mover 2s infinite;
 }
 
@@ -100,4 +102,103 @@ textarea {
     40% {
         transform: none;
     }
+}*/
+
+
+
+
+/*html {
+    background-image: linear-gradient(129deg, #f2cef2, #c9d8ed 31%, #d9f6ff 52%, #fdffed 74%, #ffdee7);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100%;
+    text-align: center;
+}*/
+
+/*h1 {
+    font-size: calc(2em + 50vmin);
+    margin: 0;
 }
+
+p {
+    font-size: 1.2em;
+}*/
+
+
+.mastercard {
+    display: inline-block;
+    height: 1.4em;
+    isolation: isolate;
+    position: relative;
+    line-height: 1em;
+    vertical-align: middle;
+    width: 2.2em;
+    margin-left:85%;
+    margin-top : 1em;
+    
+}
+
+    .mastercard::before,
+    .mastercard::after {
+        border-radius: 1.5em;
+        content: "";
+        display: inline-block;
+        height: 1.5em;
+        position: absolute;
+        width: 1.5em;
+    }
+
+    .mastercard::before {
+        background-color: #eb001b;
+        left: 0;
+        top: 0;
+    }
+
+    .mastercard:after {
+        background-color: #f79e1b;
+        mix-blend-mode: hard-light;
+        right: 0;
+        top: 0;
+    }
+
+.transformed {
+    /* idéntico a rotateZ(45deg); */
+    transform: rotate(-90deg);
+  
+}
+
+
+.carruseles {
+    width: 350PX;
+    height: 200PX;
+   
+ 
+  
+}
+
+
+.tarjeta_dos {
+    width: 280px;
+    height: 150px;
+  
+    border-style: solid;
+    border-radius: 20px;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+
+.index-uno {
+    z-index: 1;
+  
+
+   
+}
+
+.index-dos {
+    z-index: 10;
+    position: fixed;
+  
+}
+
+
