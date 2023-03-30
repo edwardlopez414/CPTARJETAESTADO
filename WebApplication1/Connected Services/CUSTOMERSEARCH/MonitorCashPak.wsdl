@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="MonitorCashPak" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataContract" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataContract.Juridico" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Request" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Response" />
+      <xsd:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/BusinessCore" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMonitorCashPak_CustomerSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerSearch" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_CustomerSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_CustomerForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerForm" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_CustomerForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionValidation_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionValidation" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionValidation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStore" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionLookup_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionLookup" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionLookup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluateEnterprise_InputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluateEnterprise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluatePartners_InputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluatePartners" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluatePartners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluatePartnersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluateEnterprisePartners_InputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateEnterprisePartners" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_EvaluateEnterprisePartners_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EvaluateEnterprisePartnersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_BusinessForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusinessForm" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_BusinessForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusinessFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_AssociatedForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssociatedForm" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_AssociatedForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssociatedFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_UploadDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocument" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_UploadDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_ListDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_ListDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_JurTransactionValidation_InputMessage">
+    <wsdl:part name="parameters" element="tns:JurTransactionValidation" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_JurTransactionValidation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JurTransactionValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_JurTransactionStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:JurTransactionStore" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_JurTransactionStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JurTransactionStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_DownloadDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocument" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_DownloadDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionalProfileValidation_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionalProfileValidation" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionalProfileValidation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionalProfileValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionalProfileStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionalProfileStore" />
+  </wsdl:message>
+  <wsdl:message name="IMonitorCashPak_TransactionalProfileStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransactionalProfileStoreResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMonitorCashPak">
+    <wsdl:operation name="CustomerSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/CustomerSearch" message="tns:IMonitorCashPak_CustomerSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/CustomerSearchResponse" message="tns:IMonitorCashPak_CustomerSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/CustomerForm" message="tns:IMonitorCashPak_CustomerForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/CustomerFormResponse" message="tns:IMonitorCashPak_CustomerForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionValidation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionValidation" message="tns:IMonitorCashPak_TransactionValidation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionValidationResponse" message="tns:IMonitorCashPak_TransactionValidation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionStore" message="tns:IMonitorCashPak_TransactionStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionStoreResponse" message="tns:IMonitorCashPak_TransactionStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionLookup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionLookup" message="tns:IMonitorCashPak_TransactionLookup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionLookupResponse" message="tns:IMonitorCashPak_TransactionLookup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateEnterprise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluateEnterprise" message="tns:IMonitorCashPak_EvaluateEnterprise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluateEnterpriseResponse" message="tns:IMonitorCashPak_EvaluateEnterprise_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EvaluatePartners">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluatePartners" message="tns:IMonitorCashPak_EvaluatePartners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluatePartnersResponse" message="tns:IMonitorCashPak_EvaluatePartners_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateEnterprisePartners">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluateEnterprisePartners" message="tns:IMonitorCashPak_EvaluateEnterprisePartners_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/EvaluateEnterprisePartnersResponse" message="tns:IMonitorCashPak_EvaluateEnterprisePartners_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/BusinessForm" message="tns:IMonitorCashPak_BusinessForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/BusinessFormResponse" message="tns:IMonitorCashPak_BusinessForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssociatedForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/AssociatedForm" message="tns:IMonitorCashPak_AssociatedForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/AssociatedFormResponse" message="tns:IMonitorCashPak_AssociatedForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/UploadDocument" message="tns:IMonitorCashPak_UploadDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/UploadDocumentResponse" message="tns:IMonitorCashPak_UploadDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/ListDocuments" message="tns:IMonitorCashPak_ListDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/ListDocumentsResponse" message="tns:IMonitorCashPak_ListDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JurTransactionValidation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/JurTransactionValidation" message="tns:IMonitorCashPak_JurTransactionValidation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/JurTransactionValidationResponse" message="tns:IMonitorCashPak_JurTransactionValidation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JurTransactionStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/JurTransactionStore" message="tns:IMonitorCashPak_JurTransactionStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/JurTransactionStoreResponse" message="tns:IMonitorCashPak_JurTransactionStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/DownloadDocument" message="tns:IMonitorCashPak_DownloadDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/DownloadDocumentResponse" message="tns:IMonitorCashPak_DownloadDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionalProfileValidation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionalProfileValidation" message="tns:IMonitorCashPak_TransactionalProfileValidation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionalProfileValidationResponse" message="tns:IMonitorCashPak_TransactionalProfileValidation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionalProfileStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionalProfileStore" message="tns:IMonitorCashPak_TransactionalProfileStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMonitorCashPak/TransactionalProfileStoreResponse" message="tns:IMonitorCashPak_TransactionalProfileStore_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMonitorCashPak" type="tns:IMonitorCashPak">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CustomerSearch">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/CustomerSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerForm">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/CustomerForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionValidation">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/TransactionValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStore">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/TransactionStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionLookup">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/TransactionLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateEnterprise">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/EvaluateEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EvaluatePartners">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/EvaluatePartners" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateEnterprisePartners">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/EvaluateEnterprisePartners" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessForm">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/BusinessForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociatedForm">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/AssociatedForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/UploadDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDocuments">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/ListDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JurTransactionValidation">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/JurTransactionValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JurTransactionStore">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/JurTransactionStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadDocument">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/DownloadDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionalProfileValidation">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/TransactionalProfileValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionalProfileStore">
+      <soap:operation soapAction="http://tempuri.org/IMonitorCashPak/TransactionalProfileStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MonitorCashPak">
+    <wsdl:port name="BasicHttpBinding_IMonitorCashPak" binding="tns:BasicHttpBinding_IMonitorCashPak">
+      <soap:address location="http://monitor.airpak-services.com/MonitorCashPak.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

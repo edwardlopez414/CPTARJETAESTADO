@@ -33,7 +33,8 @@ namespace WebApplication1
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.min.js"));
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/JS.js"));
 
             bundles.Add(new Bundle("~/bundles/CREDENCIALES").Include(
                 "~/Scripts/APICONECT.js"));

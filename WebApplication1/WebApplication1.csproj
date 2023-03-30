@@ -136,12 +136,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Connected Services\Conversion\Reference.cs">
+    <Compile Include="Connected Services\CREDENTIAL\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\CREDENTIAL\Reference.cs">
+    <Compile Include="Connected Services\CUSTOMERSEARCH\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -153,22 +153,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Conversion\NumberConversion.wsdl" />
-    <Content Include="Connected Services\Conversion\WebApplication1.Conversion.NumberToDollarsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\Conversion\WebApplication1.Conversion.NumberToWordsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\CREDENTIAL\configuration91.svcinfo" />
     <None Include="Connected Services\CREDENTIAL\configuration.svcinfo" />
     <None Include="Connected Services\CREDENTIAL\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Conversion\configuration91.svcinfo" />
-    <None Include="Connected Services\Conversion\configuration.svcinfo" />
-    <None Include="Connected Services\Conversion\Reference.svcmap">
+    <None Include="Connected Services\CUSTOMERSEARCH\configuration91.svcinfo" />
+    <None Include="Connected Services\CUSTOMERSEARCH\configuration.svcinfo" />
+    <None Include="Connected Services\CUSTOMERSEARCH\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -226,6 +219,70 @@
     <None Include="Connected Services\CREDENTIAL\WebRequest1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak.wsdl" />
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CUSTOMERSEARCH\MonitorCashPak6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.AsociadoFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.BusinessFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.CustomerFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.CustomerSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.DownloadDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.EnterpriseSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.JurTransactionStoreReply.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.JurTransactionValidationReply.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.ListDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.TransactionalProfileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.TransactionLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.TransactionStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.TransactionValidationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.UploadDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -236,6 +293,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JS.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -265,8 +323,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Conversion\" />
     <WCFMetadataStorage Include="Connected Services\CREDENTIAL\" />
+    <WCFMetadataStorage Include="Connected Services\CUSTOMERSEARCH\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

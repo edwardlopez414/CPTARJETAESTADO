@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="657835c1-df8f-4e3b-b9be-7c3146756daf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://monitor.airpak-services.com/MonitorCashPak.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MonitorCashPak.xsd" MetadataType="Schema" ID="1af83dd3-699b-4d97-9afb-017d6e293145" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd4" />
+    <MetadataFile FileName="MonitorCashPak1.xsd" MetadataType="Schema" ID="39264f70-4f3f-4922-aa76-34dcb5c86cdb" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd1" />
+    <MetadataFile FileName="MonitorCashPak2.xsd" MetadataType="Schema" ID="d4f07564-db34-47ff-bdad-72dccff2c291" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd2" />
+    <MetadataFile FileName="MonitorCashPak3.xsd" MetadataType="Schema" ID="84d481cd-b261-4c09-b6f2-5b190a030671" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd5" />
+    <MetadataFile FileName="MonitorCashPak.wsdl" MetadataType="Wsdl" ID="3ef5885d-2e39-4cf2-9dd5-90a80e552bfa" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?wsdl" />
+    <MetadataFile FileName="MonitorCashPak4.xsd" MetadataType="Schema" ID="b961ca0b-8f68-4b34-8079-71f647f6add1" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd6" />
+    <MetadataFile FileName="MonitorCashPak5.xsd" MetadataType="Schema" ID="bdcf3fce-6629-41f7-8a8f-1b97948213d2" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd0" />
+    <MetadataFile FileName="MonitorCashPak6.xsd" MetadataType="Schema" ID="c37d0c91-2f88-43a5-90a4-0be994f6ee80" SourceId="1" SourceUrl="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

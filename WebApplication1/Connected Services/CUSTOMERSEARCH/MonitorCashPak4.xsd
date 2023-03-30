@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BusinessCore" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BusinessCore" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataContract" />
+  <xs:complexType name="TransactionalProfileRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q1:request_header" />
+      <xs:element name="transactional_profile" nillable="true" type="tns:transactional_profile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionalProfileRequest" nillable="true" type="tns:TransactionalProfileRequest" />
+  <xs:complexType name="transactional_profile">
+    <xs:sequence>
+      <xs:element name="customer" nillable="true" type="tns:customer" />
+      <xs:element minOccurs="0" name="avg_quantity_of_remittances_sent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="avg_quantity_of_remittances_received" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="avg_amount_of_remittances_sent" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="avg_amount_of_remittances_received" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="transactional_profile" nillable="true" type="tns:transactional_profile" />
+  <xs:complexType name="customer">
+    <xs:sequence>
+      <xs:element name="first_name1" nillable="true" type="xs:string" />
+      <xs:element name="last_name1" nillable="true" type="xs:string" />
+      <xs:element name="id_number" nillable="true" type="xs:string" />
+      <xs:element name="date_of_birth" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="customer" nillable="true" type="tns:customer" />
+  <xs:complexType name="TransactionalProfileResponse">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q2:response_header" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="error" nillable="true" type="q3:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionalProfileResponse" nillable="true" type="tns:TransactionalProfileResponse" />
+</xs:schema>

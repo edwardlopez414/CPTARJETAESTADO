@@ -1,30 +1,165 @@
-﻿<!--
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <tem:GetResponse>
-         <!--Optional:-->
-<!--  <tem:pXmlData>
-    <![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-        <soapenv:Header />
-        <soapenv:Body>
-            <header>
-                <agency_id>3639</agency_id>
-                <agency_account>CAS00001</agency_account>
-                <user>DgadeaH2H</user>
-                <password>Cashpak20192</password>
-                <terminal_id>POSNI0014935</terminal_id>
-                <operation_id>card-status-query-request</operation_id>
-            </header>
-            <card-status-query-request>
-                <platform>IVR</platform>
-                <id_product>K640</id_product>
-                <account_number>537480021</account_number>
-            </card-status-query-request>
-        </soapenv:Body>
-    </soapenv:Envelope>]]>
-</tem:pXmlData>
-      </tem:GetResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
--->
+﻿<div class="principal">
+    <main class="imagen img-fluid">
+        <div class="carruseles index-dos" id="carusel" style="display: none">
+            <div class="accordion  " id="accordionFlushExample">
+                <div class="accordion-item ">
+                    <h2 class="accordion-header " id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Estado de tarjeta
+                        </button>
+                    </h2>
+                    <div></div>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse color bg-transparent" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="divi"></div>
+                        <div class="tarjeta_dos justify-content-center row">
+                            <p>
+                                <i class=""></i>
+                                <i class="mastercard transformed"></i>
+                            </p>
+                            <div class="class=" mb-3 row""><code id="value"></code><p id="account"></p> <h6>TERMINACION: <span class="colorspan"><a id="label4"></a></span></h6></div>
+                            <div class="class=" mb-3 row""> </div>
+
+                        </div>
+                        <div class="contenedor">
+                            <div class="contenedor1 d-flex">
+                               
+                                    <p mt-0><span class="colorspan">NOMBRE:</span></p>
+                                    <p id="label1"></p>
+                                    <p id="label2"></p>
+                                   
+                            </div>
+                            <div class="contenedor1 d-flex">
+                                    <p>CUENTA:</p> <p class="colorspan"><a id="label3"></a></p>                          
+                                </div>
+                            
+                            <div class="contenedor1 d-flex">                            
+                                    <p>PRODUCTO:</p><p class="colorspan"><a id="label6"></a></p>                        
+                                </div>
+                            </div>
+                        <div class="col-12  btn">
+                            <button type="submit" onclick="ocultar()" class="Boton_2">
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- acordion -->
+        <div class="container-xxl index-uno">
+            <form class="formulario1   ">
+                <div class="tarjeta justify-content-center row">
+                    <p>
+                        <i class=""></i>
+                        <i class="mastercard transformed"></i>
+                    </p>
+                    <div class="mb-3 row">
+                        <label for="formGroupExampleInput" class="form-label text-center">Numero de Cedula</label>
+                        <input type="text" class="form-control text-center" id="formGroupExampleInput" required  placeholder="999-9999-999M" maxlength="16" pattern="[0-9]+">
+                    </div>
+                    <div class="col-12 text-center">
+
+                        <button type="submit" onclick="mostrar()" class="Boton_">
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        <!-- fin formulario -->
+
+
+
+    </main>
+</div>
+
+<script type="text/javascript">
+    function check(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+            return true;
+        }
+        // Patrón de entrada, en este caso solo acepta numeros y letras
+        patron = /^[0-9]{3}\-[0-9]{6}\-[0-9]{4}[A-Z]$/;
+
+
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    function ocultar() {
+      
+        var delayInMilliseconds = 100; //1 second
+
+        setTimeout(function () {
+            document.getElementById('carusel').style.display = 'none';
+            document.location.reload();
+        }, delayInMilliseconds);
+
+    }
+    function mostrar() {
+      /*  encrip();*/
+        document.getElementById('carusel').style.display = '';   
+        function cuenta() {
+            let inputValue = document.getElementById("formGroupExampleInput").value;
+                var url = "@Url.Action("Monitor", "Home")";
+                var url2 = "@Url.Action("Monitorinfo", "Home")";
+               
+               var data = { header: inputValue.toUpperCase() };
+               var data2 = { header: inputValue.toUpperCase() };
+                $.post(url, data).done(function (data) {
+                    console.log(data);
+                    var xmlDoc = $.parseXML(data);
+                    var $xml = $(xmlDoc);
+                    var $title = $xml.find("faultcode");
+                    var $state = $xml.find("local_status_account");
+                    var $des = $xml.find("credencial_status_description");
+                    var $invalid = $xml.find("local_customer_id")
+                    var $stado = $state.text();
+                    var error = $title.text();
+                    var $inval = $invalid.text();
+                    var $desc = $des.text();
+                    if (error == "CASHPAK-ERROR") {
+                        document.getElementById('value').innerHTML = 'ERROR';
+                    } else if (($stado == "C")) {
+                        reemplazar($invalid.text(), 4);
+                        $.post(url2, data2).done(function (data2) {
+                            mapeo(data2); });
+                    } else {
+                        console.log($invalid.text())
+                        if (($inval == "") || ($stado == "")) {
+                            reemplazar($invalid.text(), 3);
+                        }
+                        switch ($stado) {
+                            case 'A':
+                                reemplazar($invalid.text(), 0);
+                                $.post(url2, data2).done(function (data2) {
+                                    mapeo(data2);
+                                    SALUDAR();
+                                }); break;
+                            case 'R': reemplazar($invalid.text(), 1);
+                                $.post(url2, data2).done(function (data2) {
+                                    mapeo(data2);
+                                });
+                                       break;
+                            case 'P': reemplazar($invalid.text(), 2);
+                                $.post(url2, data2).done(function (data2) {
+                                    mapeo(data2);
+                                }); break;
+                        }
+                    }
+                });
+            }
+        cuenta();
+    }
+</script>
+
+@Scripts.Render("~/bundles/bootstrap")
