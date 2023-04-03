@@ -146,6 +146,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\LOGIN\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,6 +167,12 @@
     <None Include="Connected Services\CUSTOMERSEARCH\configuration91.svcinfo" />
     <None Include="Connected Services\CUSTOMERSEARCH\configuration.svcinfo" />
     <None Include="Connected Services\CUSTOMERSEARCH\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\LOGIN\configuration91.svcinfo" />
+    <None Include="Connected Services\LOGIN\configuration.svcinfo" />
+    <None Include="Connected Services\LOGIN\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -283,6 +294,51 @@
     <Content Include="Connected Services\CUSTOMERSEARCH\WebApplication1.CUSTOMERSEARCH.UploadDocumentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\LOGIN\Login.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LOGIN\Login1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LOGIN\Login2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LOGIN\Login3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LOGIN\Service.wsdl" />
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.CreateUserReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.GetTerminalByConnectorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.GetTerminalSegByConnectorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.LoginHuellaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.PasswordChangeLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.PasswordChangeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.TerminalHuellaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.ValidarHuellaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LOGIN\WebApplication1.LOGIN.ValidarLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -309,6 +365,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +382,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CREDENTIAL\" />
     <WCFMetadataStorage Include="Connected Services\CUSTOMERSEARCH\" />
+    <WCFMetadataStorage Include="Connected Services\LOGIN\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

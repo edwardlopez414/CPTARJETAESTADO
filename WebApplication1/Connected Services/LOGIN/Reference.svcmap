@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="a243404c-be0d-49d6-9f0d-009a86fc397c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://posbc.airpak-services.com/POS/Login.svc?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Login.xsd" MetadataType="Schema" ID="6bae5d86-fc94-4dd0-a12c-81d729f22c26" SourceId="1" SourceUrl="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd1" />
+    <MetadataFile FileName="Login1.xsd" MetadataType="Schema" ID="eafc9f63-bd10-4aac-8a02-bf3a9f1f569b" SourceId="1" SourceUrl="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd0" />
+    <MetadataFile FileName="Login2.xsd" MetadataType="Schema" ID="1df78713-26ec-4a7d-a745-8942c6accbd4" SourceId="1" SourceUrl="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd3" />
+    <MetadataFile FileName="Login3.xsd" MetadataType="Schema" ID="15bb1e16-192b-4580-a3bd-c64acc7b9d78" SourceId="1" SourceUrl="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="1dd05c52-22ec-4a4f-ba5e-5bb3976e9d10" SourceId="1" SourceUrl="http://posbc.airpak-services.com/POS/Login.svc?WSDL" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

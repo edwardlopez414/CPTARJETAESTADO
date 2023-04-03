@@ -612,7 +612,7 @@ span {
 }
 p {
     margin: 0 auto;
-    padding-top: 10px;
+   
     margin-left:3px;
 }
 
@@ -640,6 +640,10 @@ body {
     font-family: 'Electrolize', sans-serif;
     background: #000428; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #004e92, #000428); /* Chrome 10-25, Safari 5.1-6 */
+    background-image: url(https://cashpak.com.ni/wp-content/uploads/2018/09/hero-homepage.jpg);
+    background-size:auto;
+    background-repeat:no-repeat;
+    height:100vh;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -697,7 +701,7 @@ textarea {
 }
 
 
-.Boton_ {
+.Boton_3 {
     width: 160px;
     height: 40px;
     background: #0463D0;
@@ -713,7 +717,7 @@ textarea {
     overflow: hidden;
 }
 
-    .Boton_::before {
+    .Boton_3::before {
         content: 'Iniciar Sesion';
         color: white;
         font-size: 12px;
@@ -724,11 +728,11 @@ textarea {
         transition: all .5s ease-in-out;
     }
 
-    .Boton_:hover::before {
+    .Boton_3:hover::before {
         top: -30px;
     }
 
-    .Boton_::after {
+    .Boton_3::after {
         font-family: 'FontAwesome';
         content: "\f13e";
         font-size: 25px;
@@ -740,6 +744,6 @@ textarea {
         transition: all .5s ease-in-out;
     }
 
-    .Boton_:hover::after {
+    .Boton_3:hover::after {
         top: 50%;
     }

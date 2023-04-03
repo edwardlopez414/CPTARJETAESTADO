@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
@@ -11,15 +14,60 @@ using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using WebApplication1.CUSTOMERSEARCH;
-
-
+using System.Web.UI;
+using System.Data;
+using System.Data.SqlClient;
+using System.Net.NetworkInformation;
+using Newtonsoft.Json;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
         string headers;
+        private object args;
+
         public ActionResult Index()
+        {
+
+            //var builder = WebApplication1.CreateBuilder(args);
+
+            //builder.Services.AddRazorPages();
+            //builder.Services.AddControllersWithViews();
+
+            //builder.Services.AddDistributedMemoryCache();
+
+            //builder.Services.AddSession(options =>
+            //{
+            //    options.IdleTimeout = TimeSpan.FromSeconds(10);
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.IsEssential = true;
+            //});
+
+            //var app = builder.Build();
+
+            //if (!app.Environment.IsDevelopment())
+            //{
+            //    app.UseExceptionHandler("/Error");
+            //    app.UseHsts();
+            //}
+
+            //app.UseHttpsRedirection();
+            //app.UseStaticFiles();
+
+            //app.UseRouting();
+
+            //app.UseAuthorization();
+
+            //app.UseSession();
+
+            //app.MapRazorPages();
+            //app.MapDefaultControllerRoute();
+
+            //app.Run();
+            return View();
+        }
+        public ActionResult login()
         {
             return View();
         }
@@ -164,5 +212,57 @@ namespace WebApplication1.Controllers
             return Json(respuesta);
 
         }
+
+        public JsonResult Loginvalidation(string header,string user ,string pwd )
+        {
+            bool respuesta = false;
+
+            LOGIN.ValidarLoginRequest login = new LOGIN.ValidarLoginRequest();
+            LOGIN.ServiceClient service = new LOGIN.ServiceClient();
+         
+            string StrCodigo = header;
+            string StrUsuario = user;
+            string pwd_Login = pwd;
+            string error = string.Empty;
+            login.DataUser = new DataTable();
+            DataTable dataTable = new DataTable { TableName = "DataTable" };
+            
+            System.Data.DataTable DataUser = new System.Data.DataTable();
+            string StrError = "";
+
+            DataTable dt = JsonConvert.DeserializeObject<DataTable>(
+                @"[
+                    { col1: 'value1', col2: 'value2' },
+                    { col1: 'value3', col2: 'value4' },
+                    { col1: 'value5', col2: 'value6' },
+                ]");
+               dt.TableName = "TableName";
+
+
+
+            try
+            {
+            respuesta =    service.ValidarLogin( StrCodigo,  StrUsuario, pwd_Login, ref dt, ref  StrError);
+
+            }
+            catch
+            {
+                try
+                {
+                    respuesta = false;
+                }
+                catch
+                {
+
+                  
+                }
+            }
+            
+
+            return Json(respuesta.ToString());
+
+        }
+
+      
     }
 }
