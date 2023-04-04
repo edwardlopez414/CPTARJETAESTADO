@@ -127,10 +127,13 @@
                     var error = $title.text();
                     var $inval = $invalid.text();
                     var $desc = $des.text();
+                    var $ctc = $xml.find("credencial_status_code");
+                    var $ctcc = $ctc.text();
                     if (error == "CASHPAK-ERROR") {
                         document.getElementById('value').innerHTML = 'ERROR';
                     } else if (($stado == "C")) {
                         reemplazar($invalid.text(), 4);
+
                         $.post(url2, data2).done(function (data2) {
                             mapeo(data2); });
                     } else {
@@ -142,7 +145,12 @@
                             case 'A':
                                 reemplazar($invalid.text(), 0);
                                 $.post(url2, data2).done(function (data2) {
-                                    mapeo(data2);
+                                    if ($ctcc == "28") {
+                                        reemplazar($invalid.text(), 5);
+                                        mapeo(data2);
+                                    } else {
+                                        mapeo(data2);
+                                    }
                                 }); break;
                             case 'R': reemplazar($invalid.text(), 1);
                                 $.post(url2, data2).done(function (data2) {
