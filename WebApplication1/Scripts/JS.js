@@ -21,3 +21,4 @@ function parametros(indice) {
     return valores[indice];
 
 }
+

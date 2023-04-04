@@ -83,17 +83,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label text-light">Agencia</label>
-                    <select id="select" class="form-select ">
-                        <option>Seleccione Una Agencia</option>
-                        <option value="1">Airpak Nicaragua S.A</option>
-                        <option value="2">Airpak Tipitapa</option>
-                        <option value="3">Airpak Metrocentro</option>
-                        <option value="4">Airpak La Colonia C. Jardin</option>
-                        <option value="5">Airpak Pali Zumen</option>
-                        <option value="6">Airpak Pali Linda Vista</option>
-                        <option value="7">Airpak Pali C. Sandino</option>
-                        <option value="8">Airpak Pali 1 De Mayo</option>
-                    </select>
+                    <select class="form-select " name="provincia" id="provincia"> </select>
                 </div>
                 <div class="mb-3 text-center ">
                     <button onclick=" index()" type="submit" class="Boton_3"></button>
@@ -106,7 +96,7 @@
     <script type="text/javascript">
 
         function index() {
-            let encriptado = document.getElementById("select").value;
+            let encriptado = document.getElementById("provincia").value;
             let usuario = document.getElementById("Usuario").value;
             let contrasena = document.getElementById("Contraseña").value;
             var url = "@Url.Action("Loginvalidation", "Home")";
@@ -114,8 +104,8 @@
             if ((encriptado == "") || (usuario == "") || (contrasena == "")) {
                 alert("Contraseña incorrecta NO SEA PAKA PAKA ;v");
             } else {
-              
-               
+
+
                 var data = { header: encriptado, user: usuario, pwd: contrasena };
                 console.log(data);
                 $.post(url, data).done(function (data) {
@@ -132,6 +122,21 @@
             }
         }
 
+    </script>
+
+    <script type="text/javascript">
+        function cargar_provincias() {
+            var array = ["Airpak Nicaragua S.A", "Airpak Tipitapa", "Airpak Metrocentro", "Airpak La Colonia C. Jardin", "Airpak Pali Zumen", "Airpak Pali Linda Vista", "Airpak Pali C. Sandino"];
+            var arra = ["1", "2", "3", "4", "5", "6", "7"];
+
+            for (var i in array, arra) {
+                document.getElementById("provincia").innerHTML += "<option value='" + arra[i] + "'>" + array[i] + "</option>";
+                console.log(arra[i]);
+                console.log(array[i]);
+            }
+        }
+
+        cargar_provincias();
     </script>
 </body>
 </html>

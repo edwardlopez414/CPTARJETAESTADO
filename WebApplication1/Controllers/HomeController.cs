@@ -86,7 +86,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-   
+        public ActionResult error()
+        {
+        
+            return View();
+        }
+
         public string XMLTRAMARESPONSE(string header)
         {
 
