@@ -22,20 +22,20 @@
                         </div>
                         <div class="contenedor">
                             <div class="contenedor1 d-flex">
-                               
-                                    <p mt-0><span class="colorspan">NOMBRE:</span></p>
-                                    <p id="label1"></p>
-                                    <p id="label2"></p>
-                                   
+
+                                <h6 mt-0><span >NOMBRE:</span></h6>
+                                <h6 class="colorspan1" id="label1"></h6>
+                                <h6 class="colorspan" id="label2"></h6>
+
                             </div>
                             <div class="contenedor1 d-flex">
-                                    <p>CUENTA:</p> <p class="colorspan"><a id="label3"></a></p>                          
-                                </div>
-                            
-                            <div class="contenedor1 d-flex">                            
-                                    <p>PRODUCTO:</p><p class="colorspan"><a id="label6"></a></p>                        
-                                </div>
+                                <p>CUENTA:</p> <p  id="label3" class="colorspan"></p>
                             </div>
+
+                            <div class="contenedor1 d-flex">
+                                <p>PRODUCTO:</p><p id="label6" class="colorspan"></p>
+                            </div>
+                        </div>
                         <div class="col-12  btn">
                             <button type="submit" onclick="ocultar()" class="Boton_2">
                             </button>
@@ -49,7 +49,7 @@
 
         <!-- acordion -->
         <div class="container-xxl index-uno">
-            <form class="formulario1   ">
+            <div class="formulario1   ">
                 <div class="tarjeta justify-content-center row">
                     <p>
                         <i class=""></i>
@@ -57,7 +57,7 @@
                     </p>
                     <div class="mb-3 row">
                         <label for="formGroupExampleInput" class="form-label text-center">Numero de Cedula</label>
-                        <input type="text" class="form-control text-center" id="formGroupExampleInput" required  placeholder="999-9999-999M" maxlength="16" pattern="[0-9]+">
+                        <input type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="999-9999-999M" maxlength="16" pattern="[0-9]+">
                     </div>
                     <div class="col-12 text-center">
 
@@ -67,7 +67,7 @@
                 </div>
 
 
-            </form>
+            </div>
         </div>
         <!-- fin formulario -->
 
@@ -76,43 +76,26 @@
     </main>
 </div>
 
-<script type="text/javascript">
-    function check(e) {
-        tecla = (document.all) ? e.keyCode : e.which;
-        //Tecla de retroceso para borrar, siempre la permite
-        if (tecla == 8) {
-            return true;
-        }
-        // Patrón de entrada, en este caso solo acepta numeros y letras
-        patron = /^[0-9]{3}\-[0-9]{6}\-[0-9]{4}[A-Z]$/;
-
-
-        tecla_final = String.fromCharCode(tecla);
-        return patron.test(tecla_final);
-    }
-</script>
 
 
 <script type="text/javascript">
 
     function ocultar() {
-      
-        var delayInMilliseconds = 100; //1 second
-
-        setTimeout(function () {
             document.getElementById('carusel').style.display = 'none';
             document.location.reload();
-        }, delayInMilliseconds);
 
     }
     function mostrar() {
+
+
+
       /*  encrip();*/
-        document.getElementById('carusel').style.display = '';   
+        document.getElementById('carusel').style.display = '';
         function cuenta() {
             let inputValue = document.getElementById("formGroupExampleInput").value;
                 var url = "@Url.Action("Monitor", "Home")";
                 var url2 = "@Url.Action("Monitorinfo", "Home")";
-               
+
                var data = { header: inputValue.toUpperCase() };
                var data2 = { header: inputValue.toUpperCase() };
                 $.post(url, data).done(function (data) {
@@ -138,9 +121,16 @@
                             mapeo(data2); });
                     } else {
                         console.log($invalid.text())
-                        if (($inval == "") || ($stado == "")) {
+                        $.post(url2, data2).done(function (data2) {
+                        if (($inval == "") || ($stado == "") || (data2.customer_form.customer.customer_accounts[0].account_number == "")) {
                             reemplazar($invalid.text(), 3);
+                            console.log(data2.customer_form.customer.customer_accounts[0].account_number == "")
+                        } else {
+                            $stado = 'X'
                         }
+                            });
+
+                       
                         switch ($stado) {
                             case 'A':
                                 reemplazar($invalid.text(), 0);
@@ -148,18 +138,42 @@
                                     if ($ctcc == "28") {
                                         reemplazar($invalid.text(), 5);
                                         mapeo(data2);
-                                    } else {
+                                        document.getElementById("value").className = "sucsexo";
+                                    } else  if ($ctcc == "21") {
+                                        reemplazar($invalid.text(), 9);
+                                        mapeo(data2);
+                                        
+                                    } else if ($ctcc == "2F") {
+                                        reemplazar($invalid.text(), 10);
+                                        mapeo(data2);
+
+                                    }
+                                    else
+                                    {
+                                        document.getElementById("value").className = "sucsexo";
                                         mapeo(data2);
                                     }
                                 }); break;
-                            case 'R': reemplazar($invalid.text(), 1);
-                                $.post(url2, data2).done(function (data2) {
+                            case 'R': $.post(url2, data2).done(function (data2) {
+                                if ($ctcc == "28") {
+                                    reemplazar($invalid.text(), 5);
                                     mapeo(data2);
+                                    
+                                } else {
+                                    reemplazar($invalid.text(), 1);            
+                                    mapeo(data2);
+                                    document.getElementById("value").className = "sucsexo";
+}
                                 });
+                               
                                        break;
                             case 'P': reemplazar($invalid.text(), 2);
                                 $.post(url2, data2).done(function (data2) {
                                     mapeo(data2);
+                                }); break;
+                            case 'X': reemplazar($invalid.text(), 2);
+                                $.post(url2, data2).done(function (data2) {
+                                    reemplazar($invalid.text(), 7);
                                 }); break;
                         }
                     }
@@ -170,3 +184,5 @@
 </script>
 
 @Scripts.Render("~/bundles/bootstrap")
+
+ 

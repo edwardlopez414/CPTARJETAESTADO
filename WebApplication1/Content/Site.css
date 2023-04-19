@@ -274,7 +274,7 @@ p {
     border: 2px ridge black;
     margin: 0 auto;
     box-shadow: -9px 8px 3px 2px rgba(66,63,63,0.78);
-  
+   animation:mover_2 0.5s;
     /*    position: relative;*/
 }
 
@@ -555,7 +555,7 @@ p {
     border: 1px solid;
     cursor: pointer;
     overflow: hidden;
-    
+    animation:mover_2 0.5s;
 }
 
     .Boton_2::before {
@@ -604,11 +604,11 @@ Boton_2 :hover {
  font-weight:700;
 
 }
+
 span {
     display: flex;
     margin-left: 3px;
     margin-bottom: 20px;
-   
 }
 p {
     margin: 0 auto;
@@ -617,15 +617,15 @@ p {
 }
 
 .contenedor1 {
-   
-    margin-top: 0.03em;
+    margin-top: 0.2em;
     text-align: left;
     display: flex;
     flex-direction: row;
     display: inline-block;
     border-radius: 7px;
     border: black ridge 2px;
-    opacity:50%
+    opacity: 50%;
+    animation: mover_2 0.5s;
 }
     .contenedor1:hover {
         opacity: 100%;
@@ -800,4 +800,36 @@ textarea {
     width: 450px;
     height: 400px;
     margin: auto
+}
+.sucsexo {
+    color:green;
+}
+h6 {
+    margin-right: 2em;
+    height: 1em;
+}
+.colorspan1 {
+    color: red;
+    font-weight: 700;
+    margin-right: 4px;
+}
+#label3 {
+    margin-right: 9em;
+}
+@keyframes mover_2 {
+    10% {
+        transform: translate(-350px,0);
+    }
+
+    20% {
+        transform: translate(-350px,0);
+    }
+
+    30% {
+        transform: translate(-350px,0);
+    }
+
+    40% {
+        transform: translate(-350px,0);
+    }
 }

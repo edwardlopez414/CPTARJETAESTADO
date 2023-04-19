@@ -19,6 +19,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net.NetworkInformation;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace WebApplication1.Controllers
 {
@@ -87,9 +88,9 @@ namespace WebApplication1.Controllers
             string longDateString = myDate.ToLongDateString();
             res.header = new request_header();
             res.search_parameters = new customer_parameters();
-            res.header.agent_account = "ANU022335";
-            res.header.operator_id = "Rlopez249744598.163736";
-            res.header.terminal_id = "POSNI0014061";
+            res.header.agent_account = ConfigurationManager.AppSettings["agent_account"];
+            res.header.operator_id = ConfigurationManager.AppSettings["operator_id"];
+            res.header.terminal_id = ConfigurationManager.AppSettings["terminal_id"];
             res.header.agent_country_code = "NI";
             res.header.agent_id = null;
             res.header.param1 = null;
@@ -127,9 +128,9 @@ namespace WebApplication1.Controllers
             string longDateString = myDate.ToLongDateString();
             res.header = new request_header();
             res.search_parameters = new customer_parameters();
-            res.header.agent_account = "ANU022335";
-            res.header.operator_id = "Rlopez249744598.163736";
-            res.header.terminal_id = "POSNI0014061";
+            res.header.agent_account = ConfigurationManager.AppSettings["agent_account"]; 
+            res.header.operator_id = ConfigurationManager.AppSettings["operator_id"];
+            res.header.terminal_id = ConfigurationManager.AppSettings["terminal_id"];
             res.header.agent_country_code = "NI";
             res.header.agent_id = null;
             res.header.param1 = null;
