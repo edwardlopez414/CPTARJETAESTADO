@@ -36,6 +36,9 @@ namespace WebApplication1
                 "~/Scripts/bootstrap.min.js",
                 "~/Scripts/JS.js"));
 
+            bundles.Add(new Bundle("~/bundles/loadingoverlay").Include(
+                "~/Scripts/loadingoverlay/loadingoverlay.min.js"));
+
             bundles.Add(new Bundle("~/bundles/CREDENCIALES").Include(
                 "~/Scripts/APICONECT.js"));
 

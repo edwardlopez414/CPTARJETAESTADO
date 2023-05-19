@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - CARD-STATUS</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&family=Electrolize&family=Shantell+Sans:wght@300&family=Tourney:ital,wght@0,100;0,200;1,100;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Swee alert-->
+    @Styles.Render("~/Content/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Login";
+}
+
+@Styles.Render("~/Content/css")
+<body>
+    <main>
+
+        <form class="form" action="@Url.Action("Index", "Acceso")" method="POST">
+            <div class="thumbnail text-center"><img class="brz-img texto" srcset="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x1x0x176x47x1638558904.png 1x, https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-356x94x2x0x352x94x1638558904.png 2x" src="https://cashpak.com/wp-content/uploads/brizy/imgs/cashpak-blanco-178x47x0x0x178x47x1638558904.png" alt="" draggable="false" loading="lazy"></div>
+            <div>
+                <p></p>
+
+
+
+                <div class="mb-3 tex">
+                    <label class="form-label text-light">Usuario</label>
+                    <input type="text" class="form-control" id="Usuario" name="user" placeholder="Rlopez2497">
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label text-light">Contraseña</label>
+                    <input type="password" class="form-control" name="pwd" id="Contraseña" placeholder="************">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label text-light">Agencia</label>
+                    <select class="form-select " name="header" id="Agencia"> </select>
+                </div>
+                @{
+                    if (ViewBag.Error != null)
+                    {
+
+                        <div class="mb-3 text-center ">
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.Error
+                            </div>
+                        </div>}
+
+                }
+
+                <div class="mb-3 text-center ">
+                    <button type="submit" class="Boton_3"></button>
+                </div>
+
+            </div>
+        </form>
+
+
+    </main> 
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+</body>
+</html>

@@ -20,22 +20,25 @@ using System.Data.SqlClient;
 using System.Net.NetworkInformation;
 using Newtonsoft.Json;
 using System.Configuration;
+using System.Net.Security;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.Ajax.Utilities;
+using WebApplication1.ServiceReference1;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         string headers;
         private object args;
 
         public ActionResult Index()
-        {   
-            return View();
-        }
-        public ActionResult login()
         {
             return View();
         }
+
 
         public ActionResult About()
         {
@@ -53,7 +56,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult error()
         {
-        
+
             return View();
         }
 
@@ -108,14 +111,14 @@ namespace WebApplication1.Controllers
             res.search_parameters.customer_name.last_name2 = null;
             res.search_parameters.date_of_birth = myDate;
 
-          
-
+       
+           
             return Json(SEND.CustomerSearch(res));
 
 
 
         }
-        public JsonResult Monitor( string header)
+        public JsonResult Monitor(string header)
         {
             string respuesta;
             string anexo = string.Empty;
@@ -128,7 +131,7 @@ namespace WebApplication1.Controllers
             string longDateString = myDate.ToLongDateString();
             res.header = new request_header();
             res.search_parameters = new customer_parameters();
-            res.header.agent_account = ConfigurationManager.AppSettings["agent_account"]; 
+            res.header.agent_account = ConfigurationManager.AppSettings["agent_account"];
             res.header.operator_id = ConfigurationManager.AppSettings["operator_id"];
             res.header.terminal_id = ConfigurationManager.AppSettings["terminal_id"];
             res.header.agent_country_code = "NI";
@@ -147,10 +150,10 @@ namespace WebApplication1.Controllers
             res.search_parameters.customer_name.last_name1 = "";
             res.search_parameters.customer_name.last_name2 = null;
             res.search_parameters.date_of_birth = myDate;
-            
+
             try
             {
-                
+
                 headers = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header /><soapenv:Body><header><agency_id>3639</agency_id><agency_account>CAS00001</agency_account><user>DgadeaH2H</user><password>Cashpak20192</password><terminal_id>POSNI0014935</terminal_id><operation_id>card-status-query-request</operation_id></header><card-status-query-request><platform>IVR</platform><id_product>K640</id_product><account_number>" + SEND.CustomerSearch(res).error.error_code.ToString() +
               "</account_number></card-status-query-request></soapenv:Body></soapenv:Envelope>";
 
@@ -165,15 +168,15 @@ namespace WebApplication1.Controllers
                        "</account_number></card-status-query-request></soapenv:Body></soapenv:Envelope>";
 
                     anexo = st;
-                
+
                 }
                 catch {
 
                     headers = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header /><soapenv:Body><header><agency_id>3639</agency_id><agency_account>CAS00001</agency_account><user>DgadeaH2H</user><password>Cashpak20192</password><terminal_id>POSNI0014935</terminal_id><operation_id>card-status-query-request</operation_id></header><card-status-query-request><platform>IVR</platform><id_product>K640</id_product><account_number>" + "1111" +
             "</account_number></card-status-query-request></soapenv:Body></soapenv:Envelope>";
 
-                   
-                    
+
+
                 }
             }
 
@@ -183,20 +186,20 @@ namespace WebApplication1.Controllers
 
         }
 
-        public JsonResult Loginvalidation(string header,string user ,string pwd )
+        public JsonResult Loginvalidation(string header, string user, string pwd)
         {
             bool respuesta = false;
 
             LOGIN.ValidarLoginRequest login = new LOGIN.ValidarLoginRequest();
             LOGIN.ServiceClient service = new LOGIN.ServiceClient();
-         
+
             string StrCodigo = header;
             string StrUsuario = user;
             string pwd_Login = pwd;
             string error = string.Empty;
             login.DataUser = new DataTable();
             DataTable dataTable = new DataTable { TableName = "DataTable" };
-            
+
             System.Data.DataTable DataUser = new System.Data.DataTable();
             string StrError = "";
 
@@ -206,13 +209,13 @@ namespace WebApplication1.Controllers
                     { col1: 'value3', col2: 'value4' },
                     { col1: 'value5', col2: 'value6' },
                 ]");
-               dt.TableName = "TableName";
+            dt.TableName = "TableName";
 
 
 
             try
             {
-            respuesta =    service.ValidarLogin( StrCodigo,  StrUsuario, pwd_Login, ref dt, ref  StrError);
+                respuesta = service.ValidarLogin(StrCodigo, StrUsuario, pwd_Login, ref dt, ref StrError);
 
             }
             catch
@@ -224,15 +227,16 @@ namespace WebApplication1.Controllers
                 catch
                 {
 
-                  
+
                 }
             }
-            
+
 
             return Json(respuesta.ToString());
 
         }
 
-      
+       
+
     }
 }

@@ -16,7 +16,7 @@ function reemplazar(account, value) {
     document.getElementById('account').innerHTML = account
 }
 function parametros(indice) {
-    valores = ['TARJETA ACTIVA Y ASIGNADA', 'TARJETA REEMPLAZADA Y ACTIVA', 'TARJETA BLOQUEADA', 'VALIDAR CUENTA O ID', 'DEPURADA TARJETA ENVIADA A CREDENCIALES', 'Bol. x tarjeta - Otros', 'Bol. x tarjeta - Extravío', 'INACTIVA O DEPURADA', 'BLOQUEADO', 'Bol. x tarjeta - ROBO','Bol. x tarjeta - Referida'];
+    valores = ['TARJETA ACTIVA Y ASIGNADA', 'TARJETA REEMPLAZADA Y ACTIVA', 'TARJETA BLOQUEADA', 'CUENTA INEXISTENTE', 'DEPURADA TARJETA ENVIADA A CREDENCIALES', 'Bol. x tarjeta - Otros', 'Bol. x tarjeta - Extravío', 'INACTIVA O DEPURADA', 'BLOQUEADO', 'Bol. x tarjeta - ROBO','Bol. x tarjeta - Referida'];
 
     return valores[indice];
 

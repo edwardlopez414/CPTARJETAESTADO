@@ -1,4 +1,10 @@
-﻿<div class="principal">
+﻿<head>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/loadingoverlay")
+</head>
+
+<div class="principal">
+
     <main class="imagen img-fluid">
         <div class="carruseles index-dos" id="carusel" style="display: none">
             <div class="accordion  " id="accordionFlushExample">
@@ -23,13 +29,13 @@
                         <div class="contenedor">
                             <div class="contenedor1 d-flex">
 
-                                <h6 mt-0><span >NOMBRE:</span></h6>
+                                <h6 mt-0><span>NOMBRE:</span></h6>
                                 <h6 class="colorspan1" id="label1"></h6>
                                 <h6 class="colorspan" id="label2"></h6>
 
                             </div>
                             <div class="contenedor1 d-flex">
-                                <p>CUENTA:</p> <p  id="label3" class="colorspan"></p>
+                                <p>CUENTA:</p> <p id="label3" class="colorspan"></p>
                             </div>
 
                             <div class="contenedor1 d-flex">
@@ -48,7 +54,7 @@
         </div>
 
         <!-- acordion -->
-        <div class="container-xxl index-uno">
+        <div  class="container-xxl index-uno">
             <div class="formulario1   ">
                 <div class="tarjeta justify-content-center row">
                     <p>
@@ -69,13 +75,17 @@
 
             </div>
         </div>
+
+        <div id="card">
+
+
+        </div>
         <!-- fin formulario -->
 
 
 
     </main>
 </div>
-
 
 
 <script type="text/javascript">
@@ -93,96 +103,112 @@
         document.getElementById('carusel').style.display = '';
         function cuenta() {
             let inputValue = document.getElementById("formGroupExampleInput").value;
-                var url = "@Url.Action("Monitor", "Home")";
-                var url2 = "@Url.Action("Monitorinfo", "Home")";
+            var url = "@Url.Action("Monitor", "Home")";
+            var url2 = "@Url.Action("Monitorinfo", "Home")";
+            
+            var data = { header: inputValue.toUpperCase() };
+            var data2 = { header: inputValue.toUpperCase() };
 
-               var data = { header: inputValue.toUpperCase() };
-               var data2 = { header: inputValue.toUpperCase() };
-                $.post(url, data).done(function (data) {
-                    console.log(data);
-                    var xmlDoc = $.parseXML(data);
-                    var $xml = $(xmlDoc);
-                    var $title = $xml.find("faultcode");
-                    var $state = $xml.find("local_status_account");
-                    var $des = $xml.find("credencial_status_description");
-                    var $invalid = $xml.find("local_customer_id")
-                    var $stado = $state.text();
-                    var error = $title.text();
-                    var $inval = $invalid.text();
-                    var $desc = $des.text();
-                    var $ctc = $xml.find("credencial_status_code");
-                    var $ctcc = $ctc.text();
-                    if (error == "CASHPAK-ERROR") {
-                        document.getElementById('value').innerHTML = 'ERROR';
-                    } else if (($stado == "C")) {
-                        reemplazar($invalid.text(), 4);
+            $.post({
+                url, data, beforeSend: function () {
+                    document.getElementById("card").className = "lds-hourglass";
+                }
+            })
+                .fail(function () {
+                    alert("error");
+                })
+                .done(function (data) {
 
-                        $.post(url2, data2).done(function (data2) {
-                            mapeo(data2); });
-                    } else {
-                        console.log($invalid.text())
-                        $.post(url2, data2).done(function (data2) {
-                        if (($inval == "") || ($stado == "") || (data2.customer_form.customer.customer_accounts[0].account_number == "")) {
+                    document.getElementById("card").className = "";
+                console.log(data);
+                var xmlDoc = $.parseXML(data);
+                var $xml = $(xmlDoc);
+                var $title = $xml.find("faultcode");
+                var $state = $xml.find("local_status_account");
+                var $des = $xml.find("credencial_status_description");
+                var $invalid = $xml.find("local_customer_id")
+                var $stado = $state.text();
+                var error = $title.text();
+                var $inval = $invalid.text();
+                var $desc = $des.text();
+                var $ctc = $xml.find("credencial_status_code");
+                var $ctcc = $ctc.text();
+                if (error == "CASHPAK-ERROR") {
+                    document.getElementById('value').innerHTML = 'ERROR';
+                } else if (($stado == "C")) {
+                    reemplazar($invalid.text(), 4);
+
+                    $.post(url2, data2).done(function (data2) {
+                        mapeo(data2);
+                    });
+                } else {
+                          console.log($invalid.text())
+                          $.post(url2, data2).done(function (data2) {
+                            if (($inval == "") || ($stado == "") || (data2.customer_form.customer.customer_accounts[0].account_number == "")) {
                             reemplazar($invalid.text(), 3);
                             console.log(data2.customer_form.customer.customer_accounts[0].account_number == "")
-                        } else {
-                            $stado = 'X'
-                        }
-                            });
+                             } else {
+                              $stado = 'X'
+                             }
+                          });
 
-                       
-                        switch ($stado) {
-                            case 'A':
-                                reemplazar($invalid.text(), 0);
-                                $.post(url2, data2).done(function (data2) {
-                                    if ($ctcc == "28") {
-                                        reemplazar($invalid.text(), 5);
-                                        mapeo(data2);
-                                        document.getElementById("value").className = "sucsexo";
-                                    } else  if ($ctcc == "21") {
-                                        reemplazar($invalid.text(), 9);
-                                        mapeo(data2);
-                                        
-                                    } else if ($ctcc == "2F") {
-                                        reemplazar($invalid.text(), 10);
-                                        mapeo(data2);
 
-                                    }
-                                    else
-                                    {
-                                        document.getElementById("value").className = "sucsexo";
-                                        mapeo(data2);
-                                    }
-                                }); break;
-                            case 'R': $.post(url2, data2).done(function (data2) {
+                    switch ($stado) {
+                        case 'A':
+                            reemplazar($invalid.text(), 0);
+                            $.post(url2, data2).done(function (data2) {
+                                console.log(data2);
                                 if ($ctcc == "28") {
                                     reemplazar($invalid.text(), 5);
                                     mapeo(data2);
-                                    
-                                } else {
-                                    reemplazar($invalid.text(), 1);            
-                                    mapeo(data2);
                                     document.getElementById("value").className = "sucsexo";
-}
-                                });
-                               
-                                       break;
-                            case 'P': reemplazar($invalid.text(), 2);
-                                $.post(url2, data2).done(function (data2) {
+                                } else if ($ctcc == "21") {
+                                    reemplazar($invalid.text(), 9);
                                     mapeo(data2);
-                                }); break;
-                            case 'X': reemplazar($invalid.text(), 2);
-                                $.post(url2, data2).done(function (data2) {
-                                    reemplazar($invalid.text(), 7);
-                                }); break;
-                        }
+
+                                } else if ($ctcc == "2F") {
+                                    reemplazar($invalid.text(), 10);
+                                    mapeo(data2);
+
+                                }
+                                else {
+                                    document.getElementById("value").className = "sucsexo";
+                                    mapeo(data2);
+                                }
+                            }); break;
+                        case 'R': $.post(url2, data2).done(function (data2) {
+                            if ($ctcc == "28") {
+                                reemplazar($invalid.text(), 5);
+                                mapeo(data2);
+
+                            } else if (($ctcc == "23")) {
+                                reemplazar($invalid.text(), 6);
+                                mapeo(data2);
+                            }
+                            else {
+                                reemplazar($invalid.text(), 1);
+                                mapeo(data2);
+                                document.getElementById("value").className = "sucsexo";
+                            }
+                        });
+
+                            break;
+                        case 'P': reemplazar($invalid.text(), 2);
+                            $.post(url2, data2).done(function (data2) {
+                                mapeo(data2);
+                            }); break;
+                        case 'X': reemplazar($invalid.text(), 2);
+                            $.post(url2, data2).done(function (data2) {
+                                reemplazar($invalid.text(), 7);
+                            }); break;
                     }
-                });
+
+                       }
+
+            });
             }
         cuenta();
     }
 </script>
 
-@Scripts.Render("~/bundles/bootstrap")
 
- 
