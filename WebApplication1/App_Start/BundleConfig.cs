@@ -11,13 +11,13 @@ namespace WebApplication1
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //    "~/Scripts/jquery.unobtrusive*",
+            //    "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-                "~/Scripts/knockout-{version}.js",
-                "~/Scripts/knockout.validation.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+            //    "~/Scripts/knockout-{version}.js",
+            //    "~/Scripts/knockout.validation.js"));
 
             bundles.Add(new Bundle("~/bundles/app").Include(
                 "~/Scripts/sammy-{version}.js",
@@ -43,7 +43,6 @@ namespace WebApplication1
                 "~/Scripts/APICONECT.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                 "~/Content/bootstrap.min.css",
                  "~/Content/Site.css"));
         }
     }

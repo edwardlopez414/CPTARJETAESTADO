@@ -81,7 +81,7 @@ namespace WebApplication1.CUSTOMERSEARCH {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string agent_accountField = "ANU023479";
+        private string agent_accountField;
         
         private string operator_idField;
         
