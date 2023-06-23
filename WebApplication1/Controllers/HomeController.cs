@@ -236,7 +236,56 @@ namespace WebApplication1.Controllers
 
         }
 
-       
+        public JsonResult Reference()
+        {
+        
+
+            CASA_SRTMX_CuentaPortTypeClient Ccredential = new CASA_SRTMX_CuentaPortTypeClient("CASA_SRTMX_CuentaPort", "https://10.70.10.85:8000/CASA_SRTMX_CuentaService?wsdl");
+            CASA_SRTMX_CuentaPortType csc = new CASA_SRTMX_CuentaPortTypeClient();
+          
+
+            ConsultarResponse consultar1 = new ConsultarResponse();
+
+           
+
+            ConsultarRequest consulta = new ConsultarRequest
+            
+            {
+                Autenticacion = new Autenticacion
+                {
+                    Usuario = ConfigurationManager.AppSettings["usuario"],
+                    Password = ConfigurationManager.AppSettings["password"]
+                },
+                Originador = new Originador
+                {
+                    Solicitante = ConfigurationManager.AppSettings["solicitante"],
+                    ZonaHoraria = ConfigurationManager.AppSettings["ZonaH"]
+                },
+                Cuenta = "558548754"
+            };
+
+            input3 ds = new input3(consulta)
+            {
+                ConsultarRequest = consulta
+            };
+            
+
+            ServicePointManager.ServerCertificateValidationCallback = delegate
+                    (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+
+            Ccredential.ClientCredentials.Windows.ClientCredential.UserName = ConfigurationManager.AppSettings["usuario"];
+            Ccredential.ClientCredentials.Windows.ClientCredential.Password = ConfigurationManager.AppSettings["password"];
+
+            Ccredential.Open();
+           
+            Ccredential.Close();    
+            return Json(ds, JsonRequestBehavior.AllowGet);
+
+
+
+
+        }
+
 
     }
 }

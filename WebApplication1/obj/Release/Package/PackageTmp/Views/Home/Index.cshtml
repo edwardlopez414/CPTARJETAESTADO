@@ -1,0 +1,214 @@
+﻿<head>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/loadingoverlay")
+</head>
+
+<div class="principal">
+
+    <main class="imagen img-fluid">
+        <div class="carruseles index-dos" id="carusel" style="display: none">
+            <div class="accordion  " id="accordionFlushExample">
+                <div class="accordion-item ">
+                    <h2 class="accordion-header " id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Estado de tarjeta
+                        </button>
+                    </h2>
+                    <div></div>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse color bg-transparent" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="divi"></div>
+                        <div class="tarjeta_dos justify-content-center row">
+                            <p>
+                                <i class=""></i>
+                                <i class="mastercard transformed"></i>
+                            </p>
+                            <div class="class=" mb-3 row""><code id="value"></code><p id="account"></p> <h6>TERMINACION: <span class="colorspan"><a id="label4"></a></span></h6></div>
+                            <div class="class=" mb-3 row""> </div>
+
+                        </div>
+                        <div class="contenedor">
+                            <div class="contenedor1 d-flex">
+
+                                <h6 mt-0><span>NOMBRE:</span></h6>
+                                <h6 class="colorspan1" id="label1"></h6>
+                                <h6 class="colorspan" id="label2"></h6>
+
+                            </div>
+                            <div class="contenedor1 d-flex">
+                                <p>CUENTA:</p> <p id="label3" class="colorspan"></p>
+                            </div>
+
+                            <div class="contenedor1 d-flex">
+                                <p>PRODUCTO:</p><p id="label6" class="colorspan"></p>
+                            </div>
+                        </div>
+                        <div class="col-12  btn">
+                            <button type="submit" onclick="ocultar()" class="Boton_2">
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- acordion -->
+        <div  class="container-xxl index-uno">
+            <div class="formulario1   ">
+                <div class="tarjeta justify-content-center row">
+                    <p>
+                        <i class=""></i>
+                        <i class="mastercard transformed"></i>
+                    </p>
+                    <div class="mb-3 row">
+                        <label for="formGroupExampleInput" class="form-label text-center">Numero de Cedula</label>
+                        <input type="text" class="form-control text-center" id="formGroupExampleInput" placeholder="999-9999-999M" maxlength="16" pattern="[0-9]+">
+                    </div>
+                    <div class="col-12 text-center">
+
+                        <button type="submit" onclick="mostrar()" class="Boton_">
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="card">
+
+
+        </div>
+        <!-- fin formulario -->
+
+
+
+    </main>
+</div>
+
+
+<script type="text/javascript">
+
+    function ocultar() {
+            document.getElementById('carusel').style.display = 'none';
+            document.location.reload();
+
+    }
+    function mostrar() {
+
+
+
+      /*  encrip();*/
+        document.getElementById('carusel').style.display = '';
+        function cuenta() {
+            let inputValue = document.getElementById("formGroupExampleInput").value;
+            var url = "@Url.Action("Monitor", "Home")";
+            var url2 = "@Url.Action("Monitorinfo", "Home")";
+            
+            var data = { header: inputValue.toUpperCase() };
+            var data2 = { header: inputValue.toUpperCase() };
+
+            $.post({
+                url, data, beforeSend: function () {
+                    document.getElementById("card").className = "lds-hourglass";
+                }
+            })
+                .fail(function () {
+                    alert("error");
+                })
+                .done(function (data) {
+
+                    document.getElementById("card").className = "";
+                console.log(data);
+                var xmlDoc = $.parseXML(data);
+                var $xml = $(xmlDoc);
+                var $title = $xml.find("faultcode");
+                var $state = $xml.find("local_status_account");
+                var $des = $xml.find("credencial_status_description");
+                var $invalid = $xml.find("local_customer_id")
+                var $stado = $state.text();
+                var error = $title.text();
+                var $inval = $invalid.text();
+                var $desc = $des.text();
+                var $ctc = $xml.find("credencial_status_code");
+                var $ctcc = $ctc.text();
+                if (error == "CASHPAK-ERROR") {
+                    document.getElementById('value').innerHTML = 'ERROR';
+                } else if (($stado == "C")) {
+                    reemplazar($invalid.text(), 4);
+
+                    $.post(url2, data2).done(function (data2) {
+                        mapeo(data2);
+                    });
+                } else {
+                          console.log($invalid.text())
+                          $.post(url2, data2).done(function (data2) {
+                            if (($inval == "") || ($stado == "") || (data2.customer_form.customer.customer_accounts[0].account_number == "")) {
+                            reemplazar($invalid.text(), 3);
+                            console.log(data2.customer_form.customer.customer_accounts[0].account_number == "")
+                             } else {
+                              $stado = 'X'
+                             }
+                          });
+
+
+                    switch ($stado) {
+                        case 'A':
+                            reemplazar($invalid.text(), 0);
+                            $.post(url2, data2).done(function (data2) {
+                                console.log(data2);
+                                if ($ctcc == "28") {
+                                    reemplazar($invalid.text(), 5);
+                                    mapeo(data2);
+                                    document.getElementById("value").className = "sucsexo";
+                                } else if ($ctcc == "21") {
+                                    reemplazar($invalid.text(), 9);
+                                    mapeo(data2);
+
+                                } else if ($ctcc == "2F") {
+                                    reemplazar($invalid.text(), 10);
+                                    mapeo(data2);
+
+                                }
+                                else {
+                                    document.getElementById("value").className = "sucsexo";
+                                    mapeo(data2);
+                                }
+                            }); break;
+                        case 'R': $.post(url2, data2).done(function (data2) {
+                            if ($ctcc == "28") {
+                                reemplazar($invalid.text(), 5);
+                                mapeo(data2);
+
+                            } else if (($ctcc == "23")) {
+                                reemplazar($invalid.text(), 6);
+                                mapeo(data2);
+                            }
+                            else {
+                                reemplazar($invalid.text(), 1);
+                                mapeo(data2);
+                                document.getElementById("value").className = "sucsexo";
+                            }
+                        });
+
+                            break;
+                        case 'P': reemplazar($invalid.text(), 2);
+                            $.post(url2, data2).done(function (data2) {
+                                mapeo(data2);
+                            }); break;
+                        case 'X': reemplazar($invalid.text(), 2);
+                            $.post(url2, data2).done(function (data2) {
+                                reemplazar($invalid.text(), 7);
+                            }); break;
+                    }
+
+                       }
+
+            });
+            }
+        cuenta();
+    }
+</script>
+
+
