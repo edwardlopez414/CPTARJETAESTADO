@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://posbc.airpak-services.com/POS/Login.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_ObtenerTerminalesDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTerminalesDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IService_ObtenerTerminalesDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTerminalesDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ConfigurarTerminal_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurarTerminal" />
+  </wsdl:message>
+  <wsdl:message name="IService_ConfigurarTerminal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurarTerminalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTerminalByConnectorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalByConnectorID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTerminalByConnectorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalByConnectorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTerminalSegByConnectorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalSegByConnectorID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTerminalSegByConnectorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminalSegByConnectorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ConfigurarTerminalSeguridad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurarTerminalSeguridad" />
+  </wsdl:message>
+  <wsdl:message name="IService_ConfigurarTerminalSeguridad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfigurarTerminalSeguridadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginHuella_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginHuella" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginHuella_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginHuellaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_PasswordChangeLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordChangeLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_PasswordChangeLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordChangeLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_PasswordChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordChange" />
+  </wsdl:message>
+  <wsdl:message name="IService_PasswordChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreLoginInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreLoginInfo" />
+  </wsdl:message>
+  <wsdl:message name="IService_StoreLoginInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreLoginInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateUserReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserReference" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateUserReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalHuella_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalHuella" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalHuella_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalHuellaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalConfigurada_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalConfigurada" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalConfigurada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalConfiguradaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalReseteada_InputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalReseteada" />
+  </wsdl:message>
+  <wsdl:message name="IService_TerminalReseteada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TerminalReseteadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidarHuella_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarHuella" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidarHuella_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarHuellaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidarLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_ValidarLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarLoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="ObtenerTerminalesDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ObtenerTerminalesDisponibles" message="tns:IService_ObtenerTerminalesDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ObtenerTerminalesDisponiblesResponse" message="tns:IService_ObtenerTerminalesDisponibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurarTerminal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ConfigurarTerminal" message="tns:IService_ConfigurarTerminal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ConfigurarTerminalResponse" message="tns:IService_ConfigurarTerminal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalByConnectorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTerminalByConnectorID" message="tns:IService_GetTerminalByConnectorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTerminalByConnectorIDResponse" message="tns:IService_GetTerminalByConnectorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalSegByConnectorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTerminalSegByConnectorID" message="tns:IService_GetTerminalSegByConnectorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTerminalSegByConnectorIDResponse" message="tns:IService_GetTerminalSegByConnectorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurarTerminalSeguridad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ConfigurarTerminalSeguridad" message="tns:IService_ConfigurarTerminalSeguridad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ConfigurarTerminalSeguridadResponse" message="tns:IService_ConfigurarTerminalSeguridad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Login" message="tns:IService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginHuella">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoginHuella" message="tns:IService_LoginHuella_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginHuellaResponse" message="tns:IService_LoginHuella_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PasswordChangeLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/PasswordChangeLogin" message="tns:IService_PasswordChangeLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/PasswordChangeLoginResponse" message="tns:IService_PasswordChangeLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PasswordChange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/PasswordChange" message="tns:IService_PasswordChange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/PasswordChangeResponse" message="tns:IService_PasswordChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Logout" message="tns:IService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LogoutResponse" message="tns:IService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreLoginInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/StoreLoginInfo" message="tns:IService_StoreLoginInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/StoreLoginInfoResponse" message="tns:IService_StoreLoginInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserReference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CreateUserReference" message="tns:IService_CreateUserReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CreateUserReferenceResponse" message="tns:IService_CreateUserReference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminalHuella">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/TerminalHuella" message="tns:IService_TerminalHuella_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/TerminalHuellaResponse" message="tns:IService_TerminalHuella_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminalConfigurada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/TerminalConfigurada" message="tns:IService_TerminalConfigurada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/TerminalConfiguradaResponse" message="tns:IService_TerminalConfigurada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TerminalReseteada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/TerminalReseteada" message="tns:IService_TerminalReseteada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/TerminalReseteadaResponse" message="tns:IService_TerminalReseteada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarHuella">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidarHuella" message="tns:IService_ValidarHuella_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidarHuellaResponse" message="tns:IService_ValidarHuella_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ValidarLogin" message="tns:IService_ValidarLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ValidarLoginResponse" message="tns:IService_ValidarLogin_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTerminalesDisponibles">
+      <soap:operation soapAction="http://tempuri.org/IService/ObtenerTerminalesDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurarTerminal">
+      <soap:operation soapAction="http://tempuri.org/IService/ConfigurarTerminal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalByConnectorID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTerminalByConnectorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalSegByConnectorID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTerminalSegByConnectorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigurarTerminalSeguridad">
+      <soap:operation soapAction="http://tempuri.org/IService/ConfigurarTerminalSeguridad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginHuella">
+      <soap:operation soapAction="http://tempuri.org/IService/LoginHuella" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PasswordChangeLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/PasswordChangeLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PasswordChange">
+      <soap:operation soapAction="http://tempuri.org/IService/PasswordChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreLoginInfo">
+      <soap:operation soapAction="http://tempuri.org/IService/StoreLoginInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUserReference">
+      <soap:operation soapAction="http://tempuri.org/IService/CreateUserReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminalHuella">
+      <soap:operation soapAction="http://tempuri.org/IService/TerminalHuella" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminalConfigurada">
+      <soap:operation soapAction="http://tempuri.org/IService/TerminalConfigurada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TerminalReseteada">
+      <soap:operation soapAction="http://tempuri.org/IService/TerminalReseteada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarHuella">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidarHuella" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/ValidarLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://posbc.airpak-services.com/POS/Login.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DataContract.Juridico" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataContract.Juridico" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataContract" />
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Request" />
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Response" />
+  <xs:complexType name="EnterpriseSearchRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="Header" nillable="true" type="q1:request_header" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Request" minOccurs="0" name="listPersonaAsociada" nillable="true" type="q2:ArrayOfEvaluacionPersonaAsociada" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Request" minOccurs="0" name="oEmpresa" nillable="true" type="q3:EvaluacionEmpresa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnterpriseSearchRequest" nillable="true" type="tns:EnterpriseSearchRequest" />
+  <xs:complexType name="EnterpriseSearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alerta" nillable="true" type="tns:AlertaEmpresa" />
+      <xs:element minOccurs="0" name="CategoriaRiesgo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpresaID" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="Error" nillable="true" type="q4:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnterpriseSearchResponse" nillable="true" type="tns:EnterpriseSearchResponse" />
+  <xs:complexType name="AlertaEmpresa">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/DataContract" base="q5:alert">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Response" minOccurs="0" name="Matched_Bussiness" nillable="true" type="q6:ArrayOfmatch_bussiness" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VerificacionListas.Messages.Enterprise.Response" minOccurs="0" name="Matched_Partners" nillable="true" type="q7:ArrayOfmatch_partner" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlertaEmpresa" nillable="true" type="tns:AlertaEmpresa" />
+  <xs:complexType name="BusinessFormRequest">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q8:request_header" />
+      <xs:element name="business_form" nillable="true" type="tns:business_fill" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BusinessFormRequest" nillable="true" type="tns:BusinessFormRequest" />
+  <xs:complexType name="business_fill">
+    <xs:sequence>
+      <xs:element name="business_id" type="xs:int" />
+      <xs:element name="form_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="business_name" nillable="true" type="tns:business_name" />
+      <xs:element minOccurs="0" name="legal_person_name" nillable="true" type="tns:legal_person_name" />
+      <xs:element minOccurs="0" name="business_data" nillable="true" type="tns:business_data" />
+      <xs:element minOccurs="0" name="legal_person_data" nillable="true" type="tns:legal_person_data" />
+      <xs:element minOccurs="0" name="business_economic_activity" nillable="true" type="tns:business_economic_activity" />
+      <xs:element name="business_clients" nillable="true" type="tns:ArrayOfbusiness_clients" />
+      <xs:element name="business_providers" nillable="true" type="tns:ArrayOfbusiness_provider" />
+      <xs:element name="business_information_required" nillable="true" type="tns:business_information_required" />
+      <xs:element name="business_commercial_references" nillable="true" type="tns:ArrayOfbusiness_commercial_references" />
+      <xs:element name="business_bank_references" nillable="true" type="tns:ArrayOfbusiness_commercial_references" />
+      <xs:element name="business_profile" nillable="true" type="tns:business_profile" />
+      <xs:element name="business_type" type="xs:int" />
+      <xs:element name="business_products" nillable="true" type="tns:ArrayOfbusiness_products" />
+      <xs:element minOccurs="0" name="origin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="business_beneficiaries" nillable="true" type="tns:ArrayOfbusiness_beneficiaries" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_fill" nillable="true" type="tns:business_fill" />
+  <xs:complexType name="business_name">
+    <xs:sequence>
+      <xs:element name="name" nillable="true" type="xs:string" />
+      <xs:element name="commercial_name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_name" nillable="true" type="tns:business_name" />
+  <xs:complexType name="legal_person_name">
+    <xs:sequence>
+      <xs:element name="first_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="middle_name" nillable="true" type="xs:string" />
+      <xs:element name="last_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="second_lastname" nillable="true" type="xs:string" />
+      <xs:element name="socially_known" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="legal_person_name" nillable="true" type="tns:legal_person_name" />
+  <xs:complexType name="business_data">
+    <xs:sequence>
+      <xs:element name="another_business_person_type" nillable="true" type="xs:int" />
+      <xs:element name="business_person_type" nillable="true" type="xs:int" />
+      <xs:element name="other_names" nillable="true" type="xs:string" />
+      <xs:element name="ruc" nillable="true" type="xs:string" />
+      <xs:element name="expiration_ruc" nillable="true" type="xs:string" />
+      <xs:element name="constitution_date" nillable="true" type="xs:string" />
+      <xs:element name="legal_representative" nillable="true" type="xs:string" />
+      <xs:element name="constitution_country" nillable="true" type="xs:string" />
+      <xs:element name="registration_date" nillable="true" type="xs:string" />
+      <xs:element name="registration_data" nillable="true" type="xs:string" />
+      <xs:element name="parent_address" nillable="true" type="xs:string" />
+      <xs:element name="country" nillable="true" type="xs:string" />
+      <xs:element name="state" nillable="true" type="xs:string" />
+      <xs:element name="phone" nillable="true" type="xs:string" />
+      <xs:element name="area_code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postal_mail" nillable="true" type="xs:string" />
+      <xs:element name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="web_site" nillable="true" type="xs:string" />
+      <xs:element name="country_address_branches" nillable="true" type="xs:string" />
+      <xs:element name="is_subsidiary" type="xs:boolean" />
+      <xs:element name="country_parent_constitution" nillable="true" type="xs:string" />
+      <xs:element name="place_date_fill" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_data" nillable="true" type="tns:business_data" />
+  <xs:complexType name="legal_person_data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="business_PEP" nillable="true" type="tns:business_PEP" />
+      <xs:element minOccurs="0" name="business_partner" nillable="true" type="tns:business_partner" />
+      <xs:element name="business_economic_profile" nillable="true" type="tns:business_economic_profile" />
+      <xs:element name="marital_status" nillable="true" type="xs:string" />
+      <xs:element name="birthdate" nillable="true" type="xs:string" />
+      <xs:element name="country_birth" nillable="true" type="xs:string" />
+      <xs:element name="gender" nillable="true" type="xs:string" />
+      <xs:element name="nationality" nillable="true" type="xs:string" />
+      <xs:element name="occupation" nillable="true" type="xs:string" />
+      <xs:element name="email" nillable="true" type="xs:string" />
+      <xs:element name="phone" nillable="true" type="xs:string" />
+      <xs:element name="document_type" nillable="true" type="xs:string" />
+      <xs:element name="document" nillable="true" type="xs:string" />
+      <xs:element name="country_emission" nillable="true" type="xs:string" />
+      <xs:element name="emission_date" nillable="true" type="xs:string" />
+      <xs:element name="expiration_date" nillable="true" type="xs:string" />
+      <xs:element name="country_residence" nillable="true" type="xs:string" />
+      <xs:element name="city" nillable="true" type="xs:string" />
+      <xs:element name="state" nillable="true" type="xs:string" />
+      <xs:element name="district" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postal_code" nillable="true" type="xs:string" />
+      <xs:element name="address" nillable="true" type="xs:string" />
+      <xs:element name="place_date_fill" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="legal_person_data" nillable="true" type="tns:legal_person_data" />
+  <xs:complexType name="business_PEP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="public_charge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="institution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="is_parent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="relationship" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="relationship_charge" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_PEP" nillable="true" type="tns:business_PEP" />
+  <xs:complexType name="business_partner">
+    <xs:sequence>
+      <xs:element name="firts_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="second_name" nillable="true" type="xs:string" />
+      <xs:element name="last_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="second_last_name" nillable="true" type="xs:string" />
+      <xs:element name="address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="work_center_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profession" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phone_work" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="address_work" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_partner" nillable="true" type="tns:business_partner" />
+  <xs:complexType name="business_economic_profile">
+    <xs:sequence>
+      <xs:element name="commercial_name" nillable="true" type="xs:string" />
+      <xs:element name="ruc" nillable="true" type="xs:string" />
+      <xs:element name="expiration_date" nillable="true" type="xs:string" />
+      <xs:element name="years_operation" nillable="true" type="xs:string" />
+      <xs:element name="country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postal_code" nillable="true" type="xs:string" />
+      <xs:element name="parent_address" nillable="true" type="xs:string" />
+      <xs:element name="city" nillable="true" type="xs:string" />
+      <xs:element name="state" nillable="true" type="xs:string" />
+      <xs:element name="phone" nillable="true" type="xs:string" />
+      <xs:element name="area_code" nillable="true" type="xs:string" />
+      <xs:element name="email" nillable="true" type="xs:string" />
+      <xs:element name="web_site" nillable="true" type="xs:string" />
+      <xs:element name="branch_address" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_economic_profile" nillable="true" type="tns:business_economic_profile" />
+  <xs:complexType name="business_economic_activity">
+    <xs:sequence>
+      <xs:element name="social_object" nillable="true" type="xs:string" />
+      <xs:element name="coverage" nillable="true" type="xs:string" />
+      <xs:element name="employees_ammount" nillable="true" type="xs:int" />
+      <xs:element name="economic_sector" nillable="true" type="xs:string" />
+      <xs:element name="economic_activity" nillable="true" type="xs:string" />
+      <xs:element name="operational_profile" nillable="true" type="xs:string" />
+      <xs:element name="geographic_identifications" nillable="true" type="tns:ArrayOfgeographic_identification" />
+      <xs:element name="monthly_income" type="xs:decimal" />
+      <xs:element name="local_monthly_income" type="xs:decimal" />
+      <xs:element minOccurs="0" name="anual_income" type="xs:decimal" />
+      <xs:element minOccurs="0" name="local_anual_income" type="xs:decimal" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_economic_activity" nillable="true" type="tns:business_economic_activity" />
+  <xs:complexType name="ArrayOfgeographic_identification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="geographic_identification" nillable="true" type="tns:geographic_identification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfgeographic_identification" nillable="true" type="tns:ArrayOfgeographic_identification" />
+  <xs:complexType name="geographic_identification">
+    <xs:sequence>
+      <xs:element name="geographic_identification_description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="geographic_identification" nillable="true" type="tns:geographic_identification" />
+  <xs:complexType name="ArrayOfbusiness_clients">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="business_clients" nillable="true" type="tns:business_clients" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbusiness_clients" nillable="true" type="tns:ArrayOfbusiness_clients" />
+  <xs:complexType name="business_clients">
+    <xs:sequence>
+      <xs:element name="names" nillable="true" type="xs:string" />
+      <xs:element name="identification_type" nillable="true" type="xs:string" />
+      <xs:element name="identification" nillable="true" type="xs:string" />
+      <xs:element name="address" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_clients" nillable="true" type="tns:business_clients" />
+  <xs:complexType name="ArrayOfbusiness_provider">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="business_provider" nillable="true" type="tns:business_provider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbusiness_provider" nillable="true" type="tns:ArrayOfbusiness_provider" />
+  <xs:complexType name="business_provider">
+    <xs:sequence>
+      <xs:element name="names" nillable="true" type="xs:string" />
+      <xs:element name="identification_type" nillable="true" type="xs:string" />
+      <xs:element name="identification" nillable="true" type="xs:string" />
+      <xs:element name="address" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_provider" nillable="true" type="tns:business_provider" />
+  <xs:complexType name="business_information_required">
+    <xs:sequence>
+      <xs:element name="registered_entity" nillable="true" type="xs:string" />
+      <xs:element name="record_type" nillable="true" type="xs:string" />
+      <xs:element name="record_date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="expiration_date" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_information_required" nillable="true" type="tns:business_information_required" />
+  <xs:complexType name="ArrayOfbusiness_commercial_references">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="business_commercial_references" nillable="true" type="tns:business_commercial_references" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbusiness_commercial_references" nillable="true" type="tns:ArrayOfbusiness_commercial_references" />
+  <xs:complexType name="business_commercial_references">
+    <xs:sequence>
+      <xs:element name="business_name" nillable="true" type="xs:string" />
+      <xs:element name="phone" nillable="true" type="xs:string" />
+      <xs:element name="address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="verification_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="verified" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="checker" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="comments" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_commercial_references" nillable="true" type="tns:business_commercial_references" />
+  <xs:complexType name="business_profile">
+    <xs:sequence>
+      <xs:element name="currency_type" nillable="true" type="xs:string" />
+      <xs:element name="start_operacion_amount" type="xs:decimal" />
+      <xs:element name="origin_ammount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origin_ammount_description" nillable="true" type="xs:string" />
+      <xs:element name="account_purpose" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="account_purpose_description" nillable="true" type="xs:string" />
+      <xs:element name="number_transactios" nillable="true" type="xs:string" />
+      <xs:element name="average_ammount" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_profile" nillable="true" type="tns:business_profile" />
+  <xs:complexType name="ArrayOfbusiness_products">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="business_products" nillable="true" type="tns:business_products" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbusiness_products" nillable="true" type="tns:ArrayOfbusiness_products" />
+  <xs:complexType name="business_products">
+    <xs:sequence>
+      <xs:element name="business_product" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_products" nillable="true" type="tns:business_products" />
+  <xs:complexType name="ArrayOfbusiness_beneficiaries">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="business_beneficiaries" nillable="true" type="tns:business_beneficiaries" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbusiness_beneficiaries" nillable="true" type="tns:ArrayOfbusiness_beneficiaries" />
+  <xs:complexType name="business_beneficiaries">
+    <xs:sequence>
+      <xs:element name="cliente_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="business_beneficiaries" nillable="true" type="tns:business_beneficiaries" />
+  <xs:complexType name="BusinessFormResponse">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q9:response_header" />
+      <xs:element name="business_form" nillable="true" type="tns:business_fill" />
+      <xs:element minOccurs="0" name="alert" nillable="true" type="tns:AlertaEmpresa" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="error" nillable="true" type="q10:Error" />
+      <xs:element minOccurs="0" name="informacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BusinessFormResponse" nillable="true" type="tns:BusinessFormResponse" />
+  <xs:complexType name="AsociadoFormRequest">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q11:request_header" />
+      <xs:element name="associated_form" nillable="true" type="tns:ArrayOfassociated_fill" />
+      <xs:element name="business_id" type="xs:int" />
+      <xs:element minOccurs="0" name="origin" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsociadoFormRequest" nillable="true" type="tns:AsociadoFormRequest" />
+  <xs:complexType name="ArrayOfassociated_fill">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="associated_fill" nillable="true" type="tns:associated_fill" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfassociated_fill" nillable="true" type="tns:ArrayOfassociated_fill" />
+  <xs:complexType name="associated_fill">
+    <xs:sequence>
+      <xs:element name="associated_id" type="xs:int" />
+      <xs:element name="form_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_info_data" nillable="true" type="tns:associated_data" />
+      <xs:element minOccurs="0" name="associated_info_document" nillable="true" type="tns:associated_document" />
+      <xs:element name="associated_info_name" nillable="true" type="tns:associated_names" />
+      <xs:element minOccurs="0" name="associated_info_address" nillable="true" type="tns:associated_address" />
+      <xs:element minOccurs="0" name="associated_info_phone" nillable="true" type="tns:associated_phone" />
+      <xs:element minOccurs="0" name="associated_info_pep" nillable="true" type="tns:associated_PEP" />
+      <xs:element minOccurs="0" name="associated_info_general" nillable="true" type="tns:associated_general_info" />
+      <xs:element minOccurs="0" name="associated_enterprise" nillable="true" type="tns:associated_enterprise" />
+      <xs:element minOccurs="0" name="associated_gestor" nillable="true" type="tns:associated_gestor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_fill" nillable="true" type="tns:associated_fill" />
+  <xs:complexType name="associated_data">
+    <xs:sequence>
+      <xs:element name="associated_birth_date" nillable="true" type="xs:string" />
+      <xs:element name="associated_nationality" nillable="true" type="xs:string" />
+      <xs:element name="associated_birth_country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_birth_state" nillable="true" type="xs:string" />
+      <xs:element name="associated_gender" nillable="true" type="xs:string" />
+      <xs:element name="associated_profession" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_marital_status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_other_nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_work_place" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_data" nillable="true" type="tns:associated_data" />
+  <xs:complexType name="associated_document">
+    <xs:sequence>
+      <xs:element name="associated_document_type" nillable="true" type="xs:string" />
+      <xs:element name="associated_document_number" nillable="true" type="xs:string" />
+      <xs:element name="associated_document_emission_country" nillable="true" type="xs:string" />
+      <xs:element name="associated_document_emission_date" nillable="true" type="xs:string" />
+      <xs:element name="associated_document_expiration_date" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_document" nillable="true" type="tns:associated_document" />
+  <xs:complexType name="associated_names">
+    <xs:sequence>
+      <xs:element name="associated_first_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_second_name" nillable="true" type="xs:string" />
+      <xs:element name="associated_last_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_second_lastname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_names" nillable="true" type="tns:associated_names" />
+  <xs:complexType name="associated_address">
+    <xs:sequence>
+      <xs:element name="associated_address_line" nillable="true" type="xs:string" />
+      <xs:element name="associated_address_neighborhood" nillable="true" type="xs:string" />
+      <xs:element name="associated_address_city" nillable="true" type="xs:string" />
+      <xs:element name="associated_address_state" nillable="true" type="xs:string" />
+      <xs:element name="associated_address_country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_postal_code" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_address" nillable="true" type="tns:associated_address" />
+  <xs:complexType name="associated_phone">
+    <xs:sequence>
+      <xs:element name="associated_phone_type" nillable="true" type="xs:string" />
+      <xs:element name="associated_phone_number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_phone" nillable="true" type="tns:associated_phone" />
+  <xs:complexType name="associated_PEP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="associated_is_PEP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_public_charge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_institution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_is_parent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_relationship" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_relationship_charge" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_PEP" nillable="true" type="tns:associated_PEP" />
+  <xs:complexType name="associated_general_info">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="associated_accion_percentage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_accion_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_charge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_is_socio" type="xs:boolean" />
+      <xs:element minOccurs="0" name="associated_relation_enterprise_type" type="xs:int" />
+      <xs:element minOccurs="0" name="associated_partner_enterprise" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_general_info" nillable="true" type="tns:associated_general_info" />
+  <xs:complexType name="associated_enterprise">
+    <xs:sequence>
+      <xs:element name="associated_enterprise_id" type="xs:int" />
+      <xs:element name="associated_enterprise_name" nillable="true" type="xs:string" />
+      <xs:element name="associated_enterprise_document" nillable="true" type="xs:string" />
+      <xs:element name="associated_enterprise_country" type="xs:int" />
+      <xs:element name="associated_enterprise_date" type="xs:dateTime" />
+      <xs:element name="associated_enterprise_activity" type="xs:int" />
+      <xs:element minOccurs="0" name="associated_parent_docenterprise" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="associated_enterprise_parent" type="xs:int" />
+      <xs:element name="associated_enterprise_accionista_type" type="xs:int" />
+      <xs:element name="associated_enterprise_acciones" nillable="true" type="xs:string" />
+      <xs:element name="associated_enterprise_level" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_enterprise" nillable="true" type="tns:associated_enterprise" />
+  <xs:complexType name="associated_gestor">
+    <xs:sequence>
+      <xs:element name="operador" nillable="true" type="xs:string" />
+      <xs:element name="terminal" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="associated_gestor" nillable="true" type="tns:associated_gestor" />
+  <xs:complexType name="AsociadoFormResponse">
+    <xs:sequence>
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q12:response_header" />
+      <xs:element name="business_form" nillable="true" type="tns:associated_fill" />
+      <xs:element minOccurs="0" name="alert" nillable="true" type="tns:AlertaEmpresa" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="error" nillable="true" type="q13:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsociadoFormResponse" nillable="true" type="tns:AsociadoFormResponse" />
+  <xs:complexType name="UploadDocumentRequest">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q14:request_header" />
+      <xs:element name="upload_document_form" nillable="true" type="tns:UploadDocumentForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadDocumentRequest" nillable="true" type="tns:UploadDocumentRequest" />
+  <xs:complexType name="UploadDocumentForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DocumentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="OptionIdentificationTypeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OptionPersonName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionSide" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionSpecificName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadDocumentForm" nillable="true" type="tns:UploadDocumentForm" />
+  <xs:complexType name="UploadDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadDocumentResponse" nillable="true" type="tns:UploadDocumentResponse" />
+  <xs:complexType name="ListDocumentsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q15:request_header" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListDocumentsRequest" nillable="true" type="tns:ListDocumentsRequest" />
+  <xs:complexType name="ListDocumentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documentos" nillable="true" type="tns:ArrayOfEmpresa_DocumentoAdjunto" />
+      <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListDocumentsResponse" nillable="true" type="tns:ListDocumentsResponse" />
+  <xs:complexType name="ArrayOfEmpresa_DocumentoAdjunto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Empresa_DocumentoAdjunto" nillable="true" type="tns:Empresa_DocumentoAdjunto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmpresa_DocumentoAdjunto" nillable="true" type="tns:ArrayOfEmpresa_DocumentoAdjunto" />
+  <xs:complexType name="Empresa_DocumentoAdjunto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coleccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Downloadable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmpresaDocumentoAdjuntoID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmpresaID" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaSubida" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreOriginal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpcionLado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpcionNombreEspecifico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpcionNombrePersona" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpcionTipoDocumentoId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Prefijo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubidoPorID" type="xs:int" />
+      <xs:element minOccurs="0" name="SubidoPorNombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDocumentoAdjuntoID" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoDocumentoAdjuntoNombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Empresa_DocumentoAdjunto" nillable="true" type="tns:Empresa_DocumentoAdjunto" />
+  <xs:complexType name="DownloadDocumentRequest">
+    <xs:sequence>
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DataContract" name="header" nillable="true" type="q16:request_header" />
+      <xs:element name="download_document_form" nillable="true" type="tns:DownloadDocumentForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadDocumentRequest" nillable="true" type="tns:DownloadDocumentRequest" />
+  <xs:complexType name="DownloadDocumentForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentSummary" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadDocumentForm" nillable="true" type="tns:DownloadDocumentForm" />
+  <xs:complexType name="DownloadDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ObjectType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadDocumentResponse" nillable="true" type="tns:DownloadDocumentResponse" />
+</xs:schema>

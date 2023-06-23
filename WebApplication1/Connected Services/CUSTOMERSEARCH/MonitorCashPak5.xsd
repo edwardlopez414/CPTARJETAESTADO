@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataContract" />
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataContract.Juridico" />
+  <xs:import schemaLocation="http://monitor.airpak-services.com/MonitorCashPak.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/BusinessCore" />
+  <xs:element name="CustomerSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="CustomerSearchRequest" nillable="true" type="q1:CustomerSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="CustomerSearchResult" nillable="true" type="q2:CustomerSearchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="CustomerFormRequest" nillable="true" type="q3:CustomerFormRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="CustomerFormResult" nillable="true" type="q4:CustomerFormResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionValidationRequest" nillable="true" type="q5:TransactionValidationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionValidationResult" nillable="true" type="q6:TransactionValidationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionStoreRequest" nillable="true" type="q7:request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionStoreResult" nillable="true" type="q8:TransactionStoreResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionLookup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionLookupRequest" nillable="true" type="q9:TransactionLookupRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionLookupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="TransactionLookupResult" nillable="true" type="q10:TransactionLookupResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluateEnterprise">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="request" nillable="true" type="q11:EnterpriseSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluateEnterpriseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="EvaluateEnterpriseResult" nillable="true" type="q12:EnterpriseSearchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluatePartners">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="request" nillable="true" type="q13:EnterpriseSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluatePartnersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="EvaluatePartnersResult" nillable="true" type="q14:EnterpriseSearchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluateEnterprisePartners">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="request" nillable="true" type="q15:EnterpriseSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluateEnterprisePartnersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="EvaluateEnterprisePartnersResult" nillable="true" type="q16:EnterpriseSearchResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BusinessForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="businessFormRequest" nillable="true" type="q17:BusinessFormRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BusinessFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="BusinessFormResult" nillable="true" type="q18:BusinessFormResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociatedForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="asociatedFormRequest" nillable="true" type="q19:AsociadoFormRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssociatedFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="AssociatedFormResult" nillable="true" type="q20:AsociadoFormResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="uploadDocumentRequest" nillable="true" type="q21:UploadDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="UploadDocumentResult" nillable="true" type="q22:UploadDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="listDocumentsRequest" nillable="true" type="q23:ListDocumentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="ListDocumentsResult" nillable="true" type="q24:ListDocumentsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JurTransactionValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="request" nillable="true" type="q25:JurTransactionValidationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JurTransactionValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="JurTransactionValidationResult" nillable="true" type="q26:JurTransactionValidationReply" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JurTransactionStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="request" nillable="true" type="q27:JurTransactionStoreRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JurTransactionStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DataContract" minOccurs="0" name="JurTransactionStoreResult" nillable="true" type="q28:JurTransactionStoreReply" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="downloadDocumentRequest" nillable="true" type="q29:DownloadDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DataContract.Juridico" minOccurs="0" name="DownloadDocumentResult" nillable="true" type="q30:DownloadDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionalProfileValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/BusinessCore" minOccurs="0" name="transactionalProfileRequest" nillable="true" type="q31:TransactionalProfileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionalProfileValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/BusinessCore" minOccurs="0" name="TransactionalProfileValidationResult" nillable="true" type="q32:TransactionalProfileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionalProfileStore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/BusinessCore" minOccurs="0" name="transactionalProfileRequest" nillable="true" type="q33:TransactionalProfileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransactionalProfileStoreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/BusinessCore" minOccurs="0" name="TransactionalProfileStoreResult" nillable="true" type="q34:TransactionalProfileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
