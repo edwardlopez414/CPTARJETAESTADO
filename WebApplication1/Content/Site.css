@@ -464,9 +464,11 @@ textarea {
     border: 1px solid;
     cursor: pointer;
     overflow: hidden;
+    color:white;
+    text-decoration : none;
 }
 
-    .Boton_::before {
+    /*.Boton_::before {
         content: 'Consultar';
         color: white;
         font-size: 14px;
@@ -476,16 +478,16 @@ textarea {
         transform: translate(-50%, -50%);
         transition: all .5s ease-in-out;
     }
-
+        /*
     .Boton_:hover::before {
         top: -30px;
     }
 
-    .Boton_::after {
-        font-family: 'FontAwesome';
-        content: "\f09d";
-        font-size: 25px;
-        color: white;
+    .Boton_::after {*/
+     /*   font-family: 'FontAwesome';*/
+        /*content: "Consultar";*/
+  /*      font-size: 25px;*/
+        /*color: white;
         position: absolute;
         top: 150%;
         left: 50%;
@@ -495,7 +497,7 @@ textarea {
 
     .Boton_:hover::after {
         top: 50%;
-    }
+    }*/
 
 
 
@@ -518,9 +520,10 @@ textarea {
     border: 1px solid;
     cursor: pointer;
     overflow: hidden;
+    color:white;
     animation:mover_2 0.5s;
 }
-
+/*
     .Boton_2::before {
         content: 'salir';
         color: white;
@@ -554,7 +557,7 @@ Boton_2 :hover {
 
     .Boton_2:hover::after {
         top: 50%;
-    }
+    }*/
 
 .contenedor {
  margin-top:0.4em;
@@ -677,9 +680,10 @@ textarea {
     border: 1px ridge white;
     cursor: pointer;
     overflow: hidden;
+    color:white;
 }
 
-    .Boton_3::before {
+   /* .Boton_3::before {
         content: 'Iniciar Sesion';
         color: white;
         font-size: 12px;
@@ -708,7 +712,7 @@ textarea {
 
     .Boton_3:hover::after {
         top: 50%;
-    }
+    }*/
 .error {
     width: 100%;
     height: 70vh;
